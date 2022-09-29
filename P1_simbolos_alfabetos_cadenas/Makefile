@@ -13,11 +13,15 @@
 #
 
 
-parentheses: parentheses.o
-	g++ -Wall -std=c++11 parentheses.o -oparentheses 
 
-parentheses.o: parentheses.cc
-	g++ -c parentheses.cc -o parentheses.o
+main_strings: main_strings.o alphabet_class.o
+	g++ -Wall -std=c++17 main_strings.o alphabet_class.o -o main_strings 
+
+main_strings.o: main_strings.cc alphabet_class.h
+	g++ -c main_strings.cc -o main_strings.o 
+
+alphabet_class.o: alphabet_class.cc alphabet_class.h
+	g++ -c alphabet_class.cc -o alphabet_class.o
 
 clean:
-	rm parentheses.o parentheses
+	rm main_strings.o main_strings alphabet_class.o main_strings.txt

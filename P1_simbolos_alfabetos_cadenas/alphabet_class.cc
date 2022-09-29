@@ -12,10 +12,7 @@
 // 28/09/2022 - Creación, primera versión del código
 //
 
+#ifndef ALFABETO_H
+#define ALFABETO_H
 
-#include <iostream>
-#include <fstream>
-
-int main() {
-  std::cout << "prueba" << std::endl;
-}
+#endif

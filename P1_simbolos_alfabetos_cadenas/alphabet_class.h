@@ -11,11 +11,3 @@
 // Historial de revisiones
 // 28/09/2022 - Creación, primera versión del código
 //
-
-
-#include <iostream>
-#include <fstream>
-
-int main() {
-  std::cout << "prueba" << std::endl;
-}
