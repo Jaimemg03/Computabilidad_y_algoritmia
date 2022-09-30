@@ -6,7 +6,7 @@
 // Autor: Francisco David Hernández Alayón
 // Correo: alu0101469898@ull.edu.es
 // Fecha: 04/10/2022
-// Archivo main_strings.cc: Implementación de la clase alfabeto
+// Archivo clase_alfabeto.cc: Implementación de la clase alfabeto
 
 // Historial de revisiones
 // 28/09/2022 - Creación, primera versión del código

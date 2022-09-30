@@ -6,7 +6,7 @@
 // Autor: Francisco David Hernández Alayón
 // Correo: alu0101469898@ull.edu.es
 // Fecha: 04/10/2022
-// Archivo main_strings.cc: Implementación de la clase cadena
+// Archivo clase_cadena.cc: Implementación de la clase cadena
 
 // Historial de revisiones
 // 28/09/2022 - Creación, primera versión del código
@@ -16,14 +16,27 @@
 #include "clase_cadena.h"
 #include <string>
 
-// Constructor de la clase Cadena
-Cadena::Cadena(const std::string& cadena) {
-  cadena_ = cadena;
+//------------------Métodos-de-clase------------------//
+// Constructor parametrizado de la clase Cadena
+Cadena::Cadena(const Simbolo& simbolo_convertir) {
+  cadena_ = simbolo_convertir.get_simbolo();
+}
+
+// Constructor por defecto de la clase Cadena
+Cadena::Cadena() {
+  cadena_ = "";
+}
+
+// metodo para concatenar un simbolo a la cadena y cambiando esta
+void Cadena::Concatenar(const Simbolo& simbolo_concatenar) {
+  std::string nueva_cadena{cadena_ + simbolo_concatenar.get_simbolo()};
+  cadena_ = nueva_cadena;
+
 }
 
 // Setter de la clase cadena para cambiar la cadena
-void Cadena::set_cadena(const std::string& nueva_cadena) {
-  cadena_ = nueva_cadena;
+void Cadena::set_cadena(const Cadena& nueva_cadena) {
+  cadena_ = nueva_cadena.get_cadena();
 }
 
 // Getter de la clase cadena para obtener la string de la cadena
@@ -31,15 +44,20 @@ std::string Cadena::get_cadena() const {
   return cadena_;
 }
 
-// sobrecarga del operador + para ampliar la cadena concatenando una string
-Cadena Cadena::operator+(const std::string& simbolo_anadir) {
-  Cadena cadena_nueva{cadena_ + simbolo_anadir};
-  return cadena_nueva;
-}
+// sirve para conseguir un simbolo de la cadena especifico
+std::string Cadena::at_cadena(int posicion) const {
+  if (posicion < cadena_.length()) {
+    std::string simbolo_entregar{cadena_[posicion]};
+    return simbolo_entregar;
+  }
+  return "&";
+}  
 
-// sobrecarga del operador + para ampliar la cadena concatenando un char
-Cadena Cadena::operator+(const char& simbolo_anadir) {
-  Cadena cadena_nueva{cadena_ + simbolo_anadir};
+
+//------------------Sobrecarga-de-operadores------------------//
+// sobrecarga del operador + para ampliar la cadena concatenando una string
+Cadena Cadena::operator+(const Simbolo& simbolo_anadir) {
+  Cadena cadena_nueva{cadena_ + simbolo_anadir.get_simbolo()};
   return cadena_nueva;
 }
 
@@ -56,10 +74,7 @@ std::ostream& operator<<(std::ostream& out, const Cadena& cadena_mostrar) {
 }
 
 
-
-
-
-
+//------------------Ejercicios-Practica------------------//
 int Cadena::Longitud() const {
   return int(cadena_.length());
 }
@@ -68,7 +83,8 @@ int Cadena::Longitud() const {
 Cadena Cadena::Inversa() const {
   Cadena cadena_inversa;
   for (int bucle{int(cadena_.length()) - 1}; bucle >= 0; --bucle) {
-    cadena_inversa = cadena_inversa + cadena_[bucle];
+    Simbolo simbolo_anadir{at_cadena(bucle)};
+    cadena_inversa = cadena_inversa + simbolo_anadir;
   }
 
   return cadena_inversa;

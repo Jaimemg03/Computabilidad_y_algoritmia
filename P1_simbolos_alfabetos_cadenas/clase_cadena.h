@@ -6,7 +6,7 @@
 // Autor: Francisco David Hernández Alayón
 // Correo: alu0101469898@ull.edu.es
 // Fecha: 04/10/2022
-// Archivo main_strings.cc: Definición de la clase cadena
+// Archivo clase_cadena.h: Definición de la clase cadena
 
 // Historial de revisiones
 // 28/09/2022 - Creación, primera versión del código
@@ -16,17 +16,22 @@
 #include <iostream>
 #include <string>
 
-#ifndef ALFABETO_H
-#define ALFABETO_H
+#include "clase_simbolo.h"
+
+#ifndef CADENA_H
+#define CADENA_H
 
 // clase Cadena que permite crear cadenas y trabajar con ellas 
 class Cadena {
  public:
-  Cadena(const std::string& cadena = "");   // Constructor de la clase Cadena
-  void set_cadena(const std::string& nueva_cadena);   //setter
+  Cadena(const Simbolo& simbolo_convertir);   // Constructor parametrizado de la clase Cadena
+  Cadena();   // Constructor por defecto de la clase Cadena
+  void Concatenar(const Simbolo& simbolo_concatenar);    // metodo para concatenar un simbolo a la cadena y formar otra nueva
+  void set_cadena(const Cadena& nueva_cadena);   //setter
   std::string get_cadena() const;   // getter
+  std::string at_cadena(int posicion) const;    // sirve para conseguir un simbolo de la cadena especifico
 
-  Cadena operator+(const std::string& simbolo_anadir);   // sobrecarga del operador + para ampliar la cadena concatenando una std::string
+  Cadena operator+(const Simbolo& simbolo_anadir);   // sobrecarga del operador + para ampliar la cadena concatenando una std::string
   Cadena operator+(const char& simbolo_anadir);   // sobrecarga del operador + para ampliar la cadena concatenando un char
 
   int Longitud() const;
