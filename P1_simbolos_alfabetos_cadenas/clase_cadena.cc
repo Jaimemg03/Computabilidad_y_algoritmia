@@ -15,12 +15,19 @@
 
 #include "clase_cadena.h"
 #include <string>
+#include <vector>
 
 //------------------Métodos-de-clase------------------//
-// Constructor parametrizado de la clase Cadena
+// Constructor parametrizado de la clase Cadena con un parámetro que es un Simbolo
 Cadena::Cadena(const Simbolo& simbolo_convertir) {
   cadena_ = simbolo_convertir.get_simbolo();
 }
+
+// Constructor parametrizado de la clase Cadena con un parámetro que es una Cadena
+Cadena::Cadena(const Cadena& cadena_convertir) {
+  cadena_ = cadena_convertir.get_cadena();
+}
+
 
 // Constructor por defecto de la clase Cadena
 Cadena::Cadena() {
@@ -44,7 +51,7 @@ std::string Cadena::get_cadena() const {
   return cadena_;
 }
 
-// sirve para conseguir un simbolo de la cadena especifico
+// sirve para conseguir un simbolo de la cadena especifico en string
 std::string Cadena::at_cadena(int posicion) const {
   if (posicion < cadena_.length()) {
     std::string simbolo_entregar{cadena_[posicion]};
@@ -91,20 +98,36 @@ Cadena Cadena::Inversa() const {
 }
 
 
+std::vector<Cadena> Cadena::Prefijos() const {
+  std::vector<Cadena> vector_cadenas;
+  Cadena prefijo_anadir;
+  for (int bucle{0}; bucle < Longitud(); ++bucle) {
+    Simbolo simbolo_concatenar = at_cadena(bucle);
+    prefijo_anadir.Concatenar(simbolo_concatenar);
+    vector_cadenas.push_back(prefijo_anadir);
+
+  }
+  return vector_cadenas;
+}
 
 
-/*
-std::string Cadena::Prefijos() const {
+std::vector<Cadena> Cadena::Sufijos() const {
+  std::vector<Cadena> vector_cadenas;
+  Cadena cadena_invertir{Inversa()};
+  Cadena sufijo_anadir;
+  for (int bucle{0}; bucle < Longitud(); ++bucle) {
+    Simbolo simbolo_concatenar = cadena_invertir.at_cadena(bucle);
+    sufijo_anadir.Concatenar(simbolo_concatenar);
+    vector_cadenas.push_back(sufijo_anadir);
+
+  }
+  return vector_cadenas;
+}
+
+
+std::vector<Cadena> Cadena::Subcadenas() const {
 
 }
-std::string Cadena::Sufijos() const {
-
-}
-std::string Cadena::Subcadenas() const {
-
-}
-*/
-
 
 
 

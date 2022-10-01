@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "clase_simbolo.h"
 
@@ -24,21 +25,23 @@
 // clase Cadena que permite crear cadenas y trabajar con ellas 
 class Cadena {
  public:
-  Cadena(const Simbolo& simbolo_convertir);   // Constructor parametrizado de la clase Cadena
+  Cadena(const Simbolo& simbolo_convertir);   // Constructor parametrizado de la clase Cadena con un parámetro que es un Simbolo
+  Cadena(const Cadena& cadena_convertir);   // Constructor parametrizado de la clase Cadena con un parámetro que es una Cadena
   Cadena();   // Constructor por defecto de la clase Cadena
+  
   void Concatenar(const Simbolo& simbolo_concatenar);    // metodo para concatenar un simbolo a la cadena y formar otra nueva
   void set_cadena(const Cadena& nueva_cadena);   //setter
   std::string get_cadena() const;   // getter
-  std::string at_cadena(int posicion) const;    // sirve para conseguir un simbolo de la cadena especifico
+  std::string at_cadena(int posicion) const;    // sirve para conseguir un simbolo de la cadena especifico en string
 
   Cadena operator+(const Simbolo& simbolo_anadir);   // sobrecarga del operador + para ampliar la cadena concatenando una std::string
   Cadena operator+(const char& simbolo_anadir);   // sobrecarga del operador + para ampliar la cadena concatenando un char
 
   int Longitud() const;
   Cadena Inversa() const;
-  Cadena Prefijos() const;
-  Cadena Sufijos() const;
-  Cadena Subcadenas() const;
+  std::vector<Cadena> Prefijos() const;
+  std::vector<Cadena> Sufijos() const;
+  std::vector<Cadena> Subcadenas() const;
 
  private:
   std::string cadena_;

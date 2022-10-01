@@ -16,6 +16,12 @@
 
 #include "clase_alfabeto.h"
 
+void MostrarVectorCadenas(const std::vector<Cadena> vector_cadenas) {
+  std::cout << "& ";
+  for (int bucle{0}; bucle < vector_cadenas.size(); ++bucle) {
+    std::cout << vector_cadenas[bucle] << " ";
+  }
+}
 
 int main() {
   std::cout << "-----SIMBOLOS----- " << std::endl;
@@ -41,7 +47,15 @@ int main() {
   std::cout << cadena_prueba  << std::endl;
 
   // inversa cadenas
-  std::cout << cadena_prueba.Inversa() << std::endl;
+  Simbolo simbolo_ejercicio{"abbab"};
+  Cadena cadena_ejercicio{simbolo_ejercicio};
+  std::cout << cadena_ejercicio << "   longitud: " << cadena_ejercicio.Longitud() << std::endl;
+  std::cout << cadena_ejercicio.Inversa() << std::endl;
+
+  MostrarVectorCadenas(cadena_ejercicio.Prefijos());
+  std::cout << std::endl;
+  MostrarVectorCadenas(cadena_ejercicio.Sufijos());
+  std::cout << std::endl;
 
 
   return 0;
