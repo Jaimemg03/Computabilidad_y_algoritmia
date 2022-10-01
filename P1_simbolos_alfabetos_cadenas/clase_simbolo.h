@@ -23,11 +23,11 @@
 // clase simbolo que permite crear simbolos y trabajar con ellos 
 class Simbolo {
  public:
-  Simbolo(const std::string& simbolo = "");   // Constructor de la clase simbolo para strings
-  Simbolo(const char& simbolo);   // Constructor de la clase simbolo para char
-  void set_simbolo(const std::string& nuevo_simbolo);   //setter
-  std::string get_simbolo() const;   // getter
-  void Concatenar(const char& caracter_concatenar);   // permite concatenar un char a al símbolo
+  Simbolo(const std::string& kSimbolo = "");   // Constructor de la clase simbolo para strings
+  Simbolo(const char& kSimbolo);   // Constructor de la clase simbolo para char
+  void SetSimbolo(const std::string& kNuevoSimbolo);   //setter
+  std::string GetSimbolo() const;   // getter
+  void Concatenar(const char& kCaracterConcatenar);   // permite concatenar un char a al símbolo
   int Longitud() const;   // longitud del simbolo
 
  private:
@@ -35,7 +35,7 @@ class Simbolo {
 
 };
 
-std::ostream& operator<<(std::ostream& out, const Simbolo& simbolo_mostrar);   // sobrecarga del operador de inserción en flujo para mostrar el simbolo
+std::ostream& operator<<(std::ostream& out, const Simbolo& kSimboloMostrar);   // sobrecarga del operador de inserción en flujo para mostrar el simbolo
 
 
 #endif

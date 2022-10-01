@@ -11,6 +11,7 @@
 // Historial de revisiones
 // 28/09/2022 - Creación, primera versión del código
 // 29/09/2022 - incluidos los primeros operadores para la clase Cadena
+// 01/10/2022 - Terminada la clase Cadena
 
 
 #include "clase_cadena.h"
@@ -19,13 +20,13 @@
 
 //------------------Métodos-de-clase------------------//
 // Constructor parametrizado de la clase Cadena con un parámetro que es un Simbolo
-Cadena::Cadena(const Simbolo& simbolo_convertir) {
-  cadena_ = simbolo_convertir.get_simbolo();
+Cadena::Cadena(const Simbolo& kSimboloConvertir) {
+  cadena_ = kSimboloConvertir.GetSimbolo();
 }
 
 // Constructor parametrizado de la clase Cadena con un parámetro que es una Cadena
-Cadena::Cadena(const Cadena& cadena_convertir) {
-  cadena_ = cadena_convertir.get_cadena();
+Cadena::Cadena(const Cadena& kCadenaConvertir) {
+  cadena_ = kCadenaConvertir.GetCadena();
 }
 
 
@@ -35,26 +36,38 @@ Cadena::Cadena() {
 }
 
 // metodo para concatenar un simbolo a la cadena y cambiando esta
-void Cadena::Concatenar(const Simbolo& simbolo_concatenar) {
-  std::string nueva_cadena{cadena_ + simbolo_concatenar.get_simbolo()};
+void Cadena::ConcatenarDelante(const Simbolo& kSimboloConcatenar) {
+  std::string nueva_cadena{cadena_ + kSimboloConcatenar.GetSimbolo()};
+  cadena_ = nueva_cadena;
+
+}
+
+// metodo para concatenar un simbolo a la cadena y cambiando esta
+void Cadena::ConcatenarDetras(const Simbolo& kSimboloConcatenar) {
+  std::string nueva_cadena{kSimboloConcatenar.GetSimbolo() + cadena_};
   cadena_ = nueva_cadena;
 
 }
 
 // Setter de la clase cadena para cambiar la cadena
-void Cadena::set_cadena(const Cadena& nueva_cadena) {
-  cadena_ = nueva_cadena.get_cadena();
+void Cadena::SetCadena(const Cadena& kNuevaCadena) {
+  cadena_ = kNuevaCadena.GetCadena();
 }
 
 // Getter de la clase cadena para obtener la string de la cadena
-std::string Cadena::get_cadena() const {
+std::string Cadena::GetCadena() const {
   return cadena_;
 }
 
+// resetea la cadena para que no contenga ningún simbolo
+void Cadena::ResetCadena() {
+  cadena_ = "";
+}
+
 // sirve para conseguir un simbolo de la cadena especifico en string
-std::string Cadena::at_cadena(int posicion) const {
-  if (posicion < cadena_.length()) {
-    std::string simbolo_entregar{cadena_[posicion]};
+std::string Cadena::AtCadena(const int kPosicion) const {
+  if (kPosicion < cadena_.length()) {
+    std::string simbolo_entregar{cadena_[kPosicion]};
     return simbolo_entregar;
   }
   return "&";
@@ -63,18 +76,18 @@ std::string Cadena::at_cadena(int posicion) const {
 
 //------------------Sobrecarga-de-operadores------------------//
 // sobrecarga del operador + para ampliar la cadena concatenando una string
-Cadena Cadena::operator+(const Simbolo& simbolo_anadir) {
-  Cadena cadena_nueva{cadena_ + simbolo_anadir.get_simbolo()};
+Cadena Cadena::operator+(const Simbolo& kSimboloAnadir) {
+  Cadena cadena_nueva{cadena_ + kSimboloAnadir.GetSimbolo()};
   return cadena_nueva;
 }
 
 // sobrecarga del operador de inserción en flujo para mostrar la cadena
-std::ostream& operator<<(std::ostream& out, const Cadena& cadena_mostrar) {
-  if (cadena_mostrar.Longitud() == 0) {   // si tiene tamaño 0 muestra que es una cadena vacía
+std::ostream& operator<<(std::ostream& out, const Cadena& kCadenaMostrar) {
+  if (kCadenaMostrar.Longitud() == 0) {   // si tiene tamaño 0 muestra que es una cadena vacía
     out << "&";
 
   } else {
-    out << cadena_mostrar.get_cadena();
+    out << kCadenaMostrar.GetCadena();
 
   }
   return out;
@@ -87,10 +100,11 @@ int Cadena::Longitud() const {
 }
 
 
+// Método que crea una cadena inversa
 Cadena Cadena::Inversa() const {
   Cadena cadena_inversa;
   for (int bucle{int(cadena_.length()) - 1}; bucle >= 0; --bucle) {
-    Simbolo simbolo_anadir{at_cadena(bucle)};
+    Simbolo simbolo_anadir{AtCadena(bucle)};
     cadena_inversa = cadena_inversa + simbolo_anadir;
   }
 
@@ -98,37 +112,68 @@ Cadena Cadena::Inversa() const {
 }
 
 
+// Método que incluye en un vector todos los prefijos de la cadena
 std::vector<Cadena> Cadena::Prefijos() const {
   std::vector<Cadena> vector_cadenas;
   Cadena prefijo_anadir;
+  Cadena cadena_vacia{'&'};
+  vector_cadenas.push_back(cadena_vacia);  // incluyo la cadena vacía
+
   for (int bucle{0}; bucle < Longitud(); ++bucle) {
-    Simbolo simbolo_concatenar = at_cadena(bucle);
-    prefijo_anadir.Concatenar(simbolo_concatenar);
+    Simbolo simbolo_concatenar = AtCadena(bucle);
+    prefijo_anadir.ConcatenarDelante(simbolo_concatenar);
     vector_cadenas.push_back(prefijo_anadir);
 
   }
+
   return vector_cadenas;
 }
 
 
+// Método que incluye en un vector todos los sufijos de la cadena
 std::vector<Cadena> Cadena::Sufijos() const {
   std::vector<Cadena> vector_cadenas;
   Cadena cadena_invertir{Inversa()};
   Cadena sufijo_anadir;
+  Cadena cadena_vacia{'&'};
+  vector_cadenas.push_back(cadena_vacia);  // incluyo la cadena vacía
+
   for (int bucle{0}; bucle < Longitud(); ++bucle) {
-    Simbolo simbolo_concatenar = cadena_invertir.at_cadena(bucle);
-    sufijo_anadir.Concatenar(simbolo_concatenar);
+    Simbolo simbolo_concatenar = cadena_invertir.AtCadena(bucle);
+    sufijo_anadir.ConcatenarDetras(simbolo_concatenar);
     vector_cadenas.push_back(sufijo_anadir);
 
   }
+  
   return vector_cadenas;
 }
 
 
+// Sirve para comprobar si la cadena está en ese vector de cadenas
+bool ComprobarExistenciaVector(const std::vector<Cadena>& kVectorComprobar, const Cadena& kCadenaComprobar) {
+  return false;
+} 
+
+
+// Método que incluye en un vector todas las subcadenas de la cadena
 std::vector<Cadena> Cadena::Subcadenas() const {
+  std::vector<Cadena> vector_subcadenas;
+  Cadena subcadena_anadir;
+  Cadena cadena_vacia{'&'};
+  vector_subcadenas.push_back(cadena_vacia);  // incluyo la cadena vacía
 
+  for (int bucle1{0}; bucle1 < Longitud(); ++bucle1) {
+    for (int bucle2{bucle1}; bucle2 < Longitud(); ++bucle2) {
+      subcadena_anadir.ConcatenarDelante(AtCadena(bucle2));
+      if (ComprobarExistenciaVector(vector_subcadenas, subcadena_anadir) == false) {      // compruebo si ya he cogido esa cadena antes
+        vector_subcadenas.push_back(subcadena_anadir);
+      }
+    }
+    subcadena_anadir.ResetCadena();
+  }
+  
+  return vector_subcadenas;
 }
-
 
 
 

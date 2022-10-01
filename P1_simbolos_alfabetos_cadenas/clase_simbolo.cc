@@ -19,28 +19,28 @@
 
 //------------------Métodos-de-clase------------------//
 // Constructor de la clase simbolo para strings
-Simbolo::Simbolo(const std::string& simbolo) {
-  simbolo_ = simbolo;
+Simbolo::Simbolo(const std::string& kSimbolo) {
+  simbolo_ = kSimbolo;
 }
 
 // Constructor de la clase simbolo para char
-Simbolo::Simbolo(const char& simbolo) {
-  simbolo_ = simbolo;
+Simbolo::Simbolo(const char& kSimbolo) {
+  simbolo_ = kSimbolo;
 } 
 
 // Setter de la clase simbolo para cambiar el simbolo
-void Simbolo::set_simbolo(const std::string& nuevo_simbolo) {
-  simbolo_ = nuevo_simbolo;
+void Simbolo::SetSimbolo(const std::string& kNuevoSimbolo) {
+  simbolo_ = kNuevoSimbolo;
 }
 
 // Getter de la clase simbolo para obtener la string de el simbolo
-std::string Simbolo::get_simbolo() const {
+std::string Simbolo::GetSimbolo() const {
   return simbolo_;
 }
 
 // metodo para concatenar un carácter a un símbolo cambiando este
-void Simbolo::Concatenar(const char& caracter_concatenar) {
-  std::string nuevo_simbolo{simbolo_ + caracter_concatenar};
+void Simbolo::Concatenar(const char& kCaracterConcatenar) {
+  std::string nuevo_simbolo{simbolo_ + kCaracterConcatenar};
   simbolo_ = nuevo_simbolo;
 
 }
@@ -54,12 +54,12 @@ int Simbolo::Longitud() const {
 //------------------Sobrecarga-Operadores------------------//
 
 // sobrecarga del operador de inserción en flujo para mostrar el simbolo
-std::ostream& operator<<(std::ostream& out, const Simbolo& simbolo_mostrar) {
-  if (simbolo_mostrar.Longitud() == 0) {   // si tiene tamaño 0 muestra que es una simbolo vacía
+std::ostream& operator<<(std::ostream& out, const Simbolo& kSimboloMostrar) {
+  if (kSimboloMostrar.Longitud() == 0) {   // si tiene tamaño 0 muestra que es una simbolo vacía
     out << "&";
 
   } else {
-    out << simbolo_mostrar.get_simbolo();
+    out << kSimboloMostrar.GetSimbolo();
 
   }
   return out;
