@@ -72,7 +72,6 @@ bool Alfabeto::CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) {
     simbolo_comprobar1.SetSimbolo(AtAlfabeto(bucle1).GetSimbolo());   
     longitud_simbolo = simbolo_comprobar1.Longitud();
     simbolo_comprobar2.SetSimbolo("");    // vaciamos el simbolo para volver a reellenarlo con el siguiente
-    
 
     for (int bucle2{0}; bucle2 < longitud_simbolo && posicion_comprobar < kCadenaComprobar.Longitud(); ++bucle2) {  // rellenamos un simbolo para comprobar partiendo de la cadena
       simbolo_comprobar2.Concatenar(kCadenaComprobar.GetCadenaStr()[posicion_comprobar]);
@@ -82,15 +81,12 @@ bool Alfabeto::CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) {
 
     }
 
-    //      std::cout << posicion_comprobar << " " << simbolo_comprobar1 << " " << simbolo_comprobar2 << " " << std::endl;
-
     if (simbolo_comprobar1 != simbolo_comprobar2) {   // si esa parte de la cadena ya está en el alfabeto avanzamos hasta la siguiente parte a comprobar
-      posicion_comprobar = posicion_comprobar - longitud_simbolo;
+      posicion_comprobar = posicion_comprobar - simbolo_comprobar2.Longitud();
       ++bucle1;  // sumamos uno a bucle para seguir buscando un simbolo
     } else {
       bucle1 = 0;   // si son iguales volvemos a comprobar desde la cadena dle principio 
     }
-    
     
     if (posicion_comprobar >= kCadenaComprobar.Longitud()) {   // si posicion_comprobar es mas grande que la cadena significa que podemos formar toda la cadena con el alfabeto
       comprobacion_final = true;
