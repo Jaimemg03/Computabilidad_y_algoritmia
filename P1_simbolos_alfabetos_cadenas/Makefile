@@ -13,8 +13,8 @@
 # 29/09/2022 - Inclusión de todos los ficheros a compilar dentro del código
 
 
-main_cadenas: main_cadenas.o clase_alfabeto.o clase_cadena.o clase_simbolo.o
-	g++ -Wall -std=c++17 main_cadenas.o clase_alfabeto.o clase_cadena.o clase_simbolo.o -o main_cadenas 
+main_cadenas: main_cadenas.o clase_alfabeto.o clase_cadena.o clase_simbolo.o funciones_cadenas.o
+	g++ -Wall -std=c++17 main_cadenas.o clase_alfabeto.o clase_cadena.o clase_simbolo.o funciones_cadenas.o -o main_cadenas 
 
 main_cadenas.o: main_cadenas.cc clase_alfabeto.h
 	g++ -c main_cadenas.cc -o main_cadenas.o 
@@ -28,5 +28,8 @@ clase_cadena.o: clase_cadena.cc clase_cadena.h
 clase_simbolo.o: clase_simbolo.cc clase_simbolo.h
 	g++ -c clase_simbolo.cc -o clase_simbolo.o
 
+funciones_cadenas.o: funciones_cadenas.cc 
+	g++ -c funciones_cadenas.cc -o funciones_cadenas.o
+
 clean:
-	rm main_cadenas.o main_cadenas clase_alfabeto.o clase_cadena.o clase_simbolo.o
+	rm main_cadenas main_cadenas.o clase_alfabeto.o clase_cadena.o clase_simbolo.o funciones_cadenas.o 

@@ -14,7 +14,7 @@
 #include <iostream>
 
 #include "clase_alfabeto.h"
-#include "funciones_cadenas"
+#include "funciones_cadenas.cc"
 
 // Método que sirve para mostrar al usuario la forma de interactuar con el programa
 void Usage(int argc, char *argv[]) {
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
   Usage(argc, argv);
   std::string parametro{argv[3]};  // opcion escogida por el usuario
 
-  if (parametro.length() ==1) { // comprobamos is el opcode es un solo caracter
+  if (parametro.length() == 1) { // comprobamos is el opcode es un solo caracter
     int opcion_usuario{std::stoi(parametro)};
     switch(opcion_usuario) {    // comprobamos que opcion a elegido el usuario
       case 1:
