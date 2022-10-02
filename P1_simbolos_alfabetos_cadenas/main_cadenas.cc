@@ -46,7 +46,7 @@ int main() {
   std::cout << cadena_prueba  << std::endl;
 
   // inversa cadenas
-  Simbolo simbolo_ejercicio{"hola"};
+  Simbolo simbolo_ejercicio{"abbab"};
   Cadena cadena_ejercicio{simbolo_ejercicio};
   std::cout << cadena_ejercicio << "   longitud: " << cadena_ejercicio.Longitud() << std::endl;
   std::cout << cadena_ejercicio.Inversa() << std::endl;
@@ -57,6 +57,29 @@ int main() {
   std::cout << std::endl;
    MostrarVectorCadenas(cadena_ejercicio.Subcadenas());
   std::cout << std::endl;
+
+
+  // alfabetos
+  std::cout << "-----ALFABETOS----- " << std::endl;
+  Simbolo simbolo1{"a"};
+  Simbolo simbolo2{"b"};
+  Simbolo simbolo3{"cd"};
+
+  Alfabeto alfabeto_prueba{simbolo1};
+  std::cout << alfabeto_prueba << std::endl;
+  alfabeto_prueba.AnadirAlfabeto(simbolo2);
+  alfabeto_prueba.AnadirAlfabeto(simbolo3);
+  std::cout << alfabeto_prueba << std::endl;
+  std::cout << "Longitud: " << alfabeto_prueba.LongitudAlfabeto() << std::endl;
+  std::cout << alfabeto_prueba << " el tercer simbolo del alfabeto es " << alfabeto_prueba.AtAlfabeto(2) <<std::endl;
+
+  // setter
+  Alfabeto alfabeto_prueba2{simbolo_ejercicio};
+  alfabeto_prueba.SetAlfabeto(alfabeto_prueba2);
+  alfabeto_prueba.AnadirAlfabeto(simbolo2);
+  std::cout << alfabeto_prueba << std::endl;
+  
+
 
 
   return 0;

@@ -7,9 +7,10 @@
 // Correo: alu0101469898@ull.edu.es
 // Fecha: 04/10/2022
 // Archivo clase_alfabeto.h: Definición de la clase alfabeto
+
 // Historial de revisiones
 // 28/09/2022 - Creación, primera versión del código
-//
+// 02/10/2022 - Terminada clase Alfabeto
 
 
 #include <iostream>
@@ -26,14 +27,19 @@
 
 class Alfabeto {
  public:
-  Alfabeto(std::vector<Cadena> vector_alfabeto = {});    // constructor de la clase
+  Alfabeto(const Simbolo& kSimboloAnadir);  // constructor de la clase
+  std::vector<Simbolo> GetAlfabeto() const;  //getter
+  void SetAlfabeto(const Alfabeto& kAlfabetoCambiar);  //setter
+  Simbolo AtAlfabeto(const int kPosicion) const;  // te da un simbolo en una determinada posicion del alfabeto
 
+  void AnadirAlfabeto(const Simbolo& kSimboloAnadir) ;   // Método para añadir un simbolo en el alfabeto
+  int LongitudAlfabeto() const;   // Muestra cuantos simbolos tiene el alfabeto
 
  private:
-  std::vector<Cadena> vector_alfabeto_;     // el vector donde se guardaran las cadenas
+  std::vector<Simbolo> alfabeto_;     // el vector donde se guardaran las cadenas
 
 };
 
-
+std::ostream& operator<<(std::ostream& out, const Alfabeto& kAlfabetoMostrar);   // sobrecarga del operador de inserción en flujo para mostrar el alfabeto
 
 #endif

@@ -151,6 +151,11 @@ std::vector<Cadena> Cadena::Sufijos() const {
 
 // Sirve para comprobar si la cadena está en ese vector de cadenas
 bool ComprobarExistenciaVector(const std::vector<Cadena>& kVectorComprobar, const Cadena& kCadenaComprobar) {
+  for (int bucle{0}; bucle < kVectorComprobar.size() ; ++bucle) {
+    if (kCadenaComprobar.GetCadena() == kVectorComprobar[bucle].GetCadena()) {
+      return true;
+    }
+  }
   return false;
 } 
 
