@@ -85,13 +85,12 @@ bool Alfabeto::CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) {
       posicion_comprobar = posicion_comprobar - simbolo_comprobar2.Longitud();
       ++bucle1;  // sumamos uno a bucle para seguir buscando un simbolo
     } else {
-      bucle1 = 0;   // si son iguales volvemos a comprobar desde la cadena dle principio 
+      bucle1 = 0;   // si son iguales volvemos a comprobar desde la cadena del principio 
     }
     
     if (posicion_comprobar >= kCadenaComprobar.Longitud()) {   // si posicion_comprobar es mas grande que la cadena significa que podemos formar toda la cadena con el alfabeto
       comprobacion_final = true;
     }
-
   }
   
   return comprobacion_final;

@@ -9,49 +9,61 @@
 // Archivo main_cadenas.cc: Es el programa cliente que usa las clases alfabeto y simbolo
 // Historial de revisiones
 // 28/09/2022 - Creación, primera versión del código
-// 29/09/2022 - incluidos los primeros operadores para la clase simbolo
+// 02/10/2022 - Terminado el main
 
 #include <iostream>
-#include <fstream>
 
 #include "clase_alfabeto.h"
+#include "funciones_cadenas"
 
-// función que muestra un vector de cadenas
-void MostrarVectorCadenas(const std::vector<Cadena> vector_cadenas) {
-  for (int bucle{0}; bucle < vector_cadenas.size(); ++bucle) {
-    std::cout << vector_cadenas[bucle] << " ";
+// Método que sirve para mostrar al usuario la forma de interactuar con el programa
+void Usage(int argc, char *argv[]) {
+  if (argc < 2) {
+    std::cout << "Modo de uso: ./maincadenas.cc fichero_entrada.txt ficherosalido.txt opcode" << std::endl;
+    std::cout << "Pruebe a añadir '--help' para más información." << std::endl;
+    exit(EXIT_SUCCESS);
+  }
+  std::string parametro{argv[1]};
+  if (parametro == "--help") {
+    std::cout << "Este programa te permite introducir desde un fichero un alfabeto y luego una cadena en la misma linea" << std::endl;
+    std::cout << "Luego eliges un número entre el 1-5 para que en el fichero de salida aparezca la operacion seleccionada" << std::endl;
+    std::cout << "1(Longitud)  2(Inversa)  3(Prefijos)  4(Sufijos)  5(Subcadenas)" << std::endl << std::endl; ;
+  }
+  if (argc != 4) {
+    std::cout << "Modo de uso: ./maincadenas.cc fichero_entrada.txt ficherosalido.txt opcode" << std::endl;
+    std::cout << "Pruebe a añadir '--help' para más información." << std::endl;
+    exit(EXIT_SUCCESS);
   }
 }
 
-int main() {
 
+int main(int argc, char* argv[]) {
+  Usage(argc, argv);
+  std::string parametro{argv[3]};  // opcion escogida por el usuario
 
+  if (parametro.length() ==1) { // comprobamos is el opcode es un solo caracter
+    int opcion_usuario{std::stoi(parametro)};
+    switch(opcion_usuario) {    // comprobamos que opcion a elegido el usuario
+      case 1:
+      break;
 
+      case 2:
+      break;
 
+      case 3:
+      break;
 
+      case 4:
+      break;
 
+      case 5:
+      break;
 
-
-
-
-
-  // Cadena pertenece a alfabeto
-  std::cout << "-----CADENA PERTENECE A ALFABETO----- " << std::endl;
-  Simbolo simbolo_z {"abracadabra"};
-  Cadena cadena_z{simbolo_z};
-  Simbolo simbolo_a{"canoconiosis"};
-  Simbolo simbolo_b{"d"};
-  Simbolo simbolo_c{"d"};
-  Simbolo simbolo_d{"a"};
-  Simbolo simbolo_e{"bra"};
-  Alfabeto alfabeto_z{simbolo_a};
-  alfabeto_z.AnadirAlfabeto(simbolo_b);
-  alfabeto_z.AnadirAlfabeto(simbolo_c);
-  alfabeto_z.AnadirAlfabeto(simbolo_d);
-  alfabeto_z.AnadirAlfabeto(simbolo_e);
-
-  std::cout << cadena_z << "  " << alfabeto_z << std::endl;
-  std::cout << alfabeto_z.CadenaPertenceAlfabeto(cadena_z) << std::endl;
-
+      default: std::cout << "El opcode introducido no es válido, introduzca uno entre el 1 y el 5" << std::endl;
+      break;
+    }
+  } else {
+    std::cout << "El opcode introducido no es válido, introduzca uno entre el 1 y el 5 " << std::endl;
+  }
   return 0;
 }
