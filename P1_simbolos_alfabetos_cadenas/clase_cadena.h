@@ -33,11 +33,12 @@ class Cadena {
   void ConcatenarDelante(const Simbolo& kSimboloConcatenar);    // metodo para concatenar por delante un simbolo a la cadena y formar otra nueva
   void ConcatenarDetras(const Simbolo& kSimboloConcatenar);    // metodo para concatenar por detrás un simbolo a la cadena y formar otra nueva
   void SetCadena(const Cadena& kNuevaCadena);   //setter
-  std::string GetCadena() const;   // getter
+  Simbolo GetCadenaSim() const;   // getter que da un simbolo
+  std::string GetCadenaStr() const;   // getter que da un string
   void ResetCadena();   // resetea la cadena para que no contenga ningún simbolo
-  std::string AtCadena(const int kPosicion) const;    // sirve para conseguir un simbolo de la cadena especifico en string
+  Simbolo AtCadena(const int kPosicion) const;    // sirve para conseguir un simbolo de la cadena especifico en string
 
-  Cadena operator+(const Simbolo& kSimboloAnadir);   // sobrecarga del operador + para ampliar la cadena concatenando una std::string
+  Cadena operator+(const Simbolo& kSimboloAnadir);   // sobrecarga del operador + para ampliar la cadena concatenando una Simbolo
   Cadena operator+(const char& kSimboloAnadir);   // sobrecarga del operador + para ampliar la cadena concatenando un char
 
   int Longitud() const;
@@ -47,7 +48,7 @@ class Cadena {
   std::vector<Cadena> Subcadenas() const;    // Método que incluye en un vector todas las subcadenas de la cadena
 
  private:
-  std::string cadena_;
+  Simbolo cadena_;
 
 };
 

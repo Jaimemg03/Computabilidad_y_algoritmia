@@ -27,6 +27,7 @@ class Simbolo {
   Simbolo(const char& kSimbolo);   // Constructor de la clase simbolo para char
   void SetSimbolo(const std::string& kNuevoSimbolo);   //setter
   std::string GetSimbolo() const;   // getter
+  
   void Concatenar(const char& kCaracterConcatenar);   // permite concatenar un char a al símbolo
   int Longitud() const;   // longitud del simbolo
 
@@ -36,6 +37,8 @@ class Simbolo {
 };
 
 std::ostream& operator<<(std::ostream& out, const Simbolo& kSimboloMostrar);   // sobrecarga del operador de inserción en flujo para mostrar el simbolo
+bool operator==(const Simbolo& kSimbolo1, const Simbolo& kSimbolo2);   // sobrecarga del operador de igualdad
+bool operator!=(const Simbolo& kSimbolo1, const Simbolo& kSimbolo2);   // sobrecarga del operador de no igualdad
 
 
 #endif

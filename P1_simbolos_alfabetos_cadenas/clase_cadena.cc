@@ -21,63 +21,69 @@
 //------------------Métodos-de-clase------------------//
 // Constructor parametrizado de la clase Cadena con un parámetro que es un Simbolo
 Cadena::Cadena(const Simbolo& kSimboloConvertir) {
-  cadena_ = kSimboloConvertir.GetSimbolo();
+  cadena_.SetSimbolo(kSimboloConvertir.GetSimbolo());
 }
 
 // Constructor parametrizado de la clase Cadena con un parámetro que es una Cadena
 Cadena::Cadena(const Cadena& kCadenaConvertir) {
-  cadena_ = kCadenaConvertir.GetCadena();
+  cadena_.SetSimbolo(kCadenaConvertir.GetCadenaStr());
 }
 
 
 // Constructor por defecto de la clase Cadena
 Cadena::Cadena() {
-  cadena_ = "";
+  cadena_.SetSimbolo("");
 }
 
 // metodo para concatenar un simbolo a la cadena y cambiando esta
 void Cadena::ConcatenarDelante(const Simbolo& kSimboloConcatenar) {
-  std::string nueva_cadena{cadena_ + kSimboloConcatenar.GetSimbolo()};
-  cadena_ = nueva_cadena;
+  std::string nueva_cadena{cadena_.GetSimbolo() + kSimboloConcatenar.GetSimbolo()};
+  cadena_.SetSimbolo(nueva_cadena);
 
 }
 
 // metodo para concatenar un simbolo a la cadena y cambiando esta
 void Cadena::ConcatenarDetras(const Simbolo& kSimboloConcatenar) {
-  std::string nueva_cadena{kSimboloConcatenar.GetSimbolo() + cadena_};
-  cadena_ = nueva_cadena;
+  std::string nueva_cadena{kSimboloConcatenar.GetSimbolo() + cadena_.GetSimbolo()};
+  cadena_.SetSimbolo(nueva_cadena);
 
 }
 
 // Setter de la clase cadena para cambiar la cadena
 void Cadena::SetCadena(const Cadena& kNuevaCadena) {
-  cadena_ = kNuevaCadena.GetCadena();
+  cadena_.SetSimbolo(kNuevaCadena.GetCadenaStr());
 }
 
 // Getter de la clase cadena para obtener la string de la cadena
-std::string Cadena::GetCadena() const {
+Simbolo Cadena::GetCadenaSim() const {
   return cadena_;
+}
+
+// Getter de la clase cadena para obtener la string de la cadena
+std::string Cadena::GetCadenaStr() const {
+  return cadena_.GetSimbolo();
 }
 
 // resetea la cadena para que no contenga ningún simbolo
 void Cadena::ResetCadena() {
-  cadena_ = "";
+  cadena_.SetSimbolo("");
 }
 
 // sirve para conseguir un simbolo de la cadena especifico en string
-std::string Cadena::AtCadena(const int kPosicion) const {
-  if (kPosicion < cadena_.length()) {
-    std::string simbolo_entregar{cadena_[kPosicion]};
+Simbolo Cadena::AtCadena(const int kPosicion) const {
+  if (kPosicion < cadena_.GetSimbolo().length()) {
+    Simbolo simbolo_entregar{cadena_.GetSimbolo()[kPosicion]};
     return simbolo_entregar;
   }
-  return "&";
+  Simbolo simbolo_vacio{"&"};
+  return simbolo_vacio;
 }  
 
 
 //------------------Sobrecarga-de-operadores------------------//
 // sobrecarga del operador + para ampliar la cadena concatenando una string
 Cadena Cadena::operator+(const Simbolo& kSimboloAnadir) {
-  Cadena cadena_nueva{cadena_ + kSimboloAnadir.GetSimbolo()};
+  Cadena cadena_nueva{cadena_.GetSimbolo() + kSimboloAnadir.GetSimbolo()};
   return cadena_nueva;
 }
 
@@ -87,7 +93,7 @@ std::ostream& operator<<(std::ostream& out, const Cadena& kCadenaMostrar) {
     out << "&";
 
   } else {
-    out << kCadenaMostrar.GetCadena();
+    out << kCadenaMostrar.GetCadenaStr();
 
   }
   return out;
@@ -96,14 +102,14 @@ std::ostream& operator<<(std::ostream& out, const Cadena& kCadenaMostrar) {
 
 //------------------Ejercicios-Practica------------------//
 int Cadena::Longitud() const {
-  return int(cadena_.length());
+  return int(cadena_.GetSimbolo().length());
 }
 
 
 // Método que crea una cadena inversa
 Cadena Cadena::Inversa() const {
   Cadena cadena_inversa;
-  for (int bucle{int(cadena_.length()) - 1}; bucle >= 0; --bucle) {
+  for (int bucle{int(cadena_.GetSimbolo().length()) - 1}; bucle >= 0; --bucle) {
     Simbolo simbolo_anadir{AtCadena(bucle)};
     cadena_inversa = cadena_inversa + simbolo_anadir;
   }
@@ -152,7 +158,7 @@ std::vector<Cadena> Cadena::Sufijos() const {
 // Sirve para comprobar si la cadena está en ese vector de cadenas
 bool ComprobarExistenciaVector(const std::vector<Cadena>& kVectorComprobar, const Cadena& kCadenaComprobar) {
   for (int bucle{0}; bucle < kVectorComprobar.size() ; ++bucle) {
-    if (kCadenaComprobar.GetCadena() == kVectorComprobar[bucle].GetCadena()) {
+    if (kCadenaComprobar.GetCadenaStr() == kVectorComprobar[bucle].GetCadenaStr()) {
       return true;
     }
   }

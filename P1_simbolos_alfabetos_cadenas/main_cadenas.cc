@@ -79,8 +79,21 @@ int main() {
   alfabeto_prueba.AnadirAlfabeto(simbolo2);
   std::cout << alfabeto_prueba << std::endl;
   
+  // Cadena pertenece a alfabeto
+  std::cout << "-----CADENA PERTENECE A ALFABETO----- " << std::endl;
+  Simbolo simbolo_z {"abc"};
+  Cadena cadena_z{simbolo_z};
+  Simbolo simbolo_a{"c"};
+  Simbolo simbolo_b{"ba"};
+  Simbolo simbolo_c{"a"};
+  Simbolo simbolo_d{"la"};
+  Alfabeto alfabeto_z{simbolo_a};
+  alfabeto_z.AnadirAlfabeto(simbolo_b);
+  alfabeto_z.AnadirAlfabeto(simbolo_c);
+  alfabeto_z.AnadirAlfabeto(simbolo_d);
 
-
+  std::cout << cadena_z << "  " << alfabeto_z << std::endl;
+  std::cout << alfabeto_z.CadenaPertenceAlfabeto(cadena_z) << std::endl;
 
   return 0;
 }

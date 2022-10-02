@@ -16,7 +16,6 @@
 #include "clase_simbolo.h"
 #include <string>
 
-
 //------------------Métodos-de-clase------------------//
 // Constructor de la clase simbolo para strings
 Simbolo::Simbolo(const std::string& kSimbolo) {
@@ -63,6 +62,16 @@ std::ostream& operator<<(std::ostream& out, const Simbolo& kSimboloMostrar) {
 
   }
   return out;
+}
+
+// sobrecarga del operador de igualdad
+bool operator==(const Simbolo& kSimbolo1, const Simbolo& kSimbolo2) {
+  return kSimbolo1.GetSimbolo() == kSimbolo2.GetSimbolo();
+}
+
+// sobrecarga del operador de no igualdad
+bool operator!=(const Simbolo& kSimbolo1, const Simbolo& kSimbolo2) {
+  return !(kSimbolo1.GetSimbolo() == kSimbolo2.GetSimbolo());
 }
 
 
