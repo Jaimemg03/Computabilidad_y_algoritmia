@@ -37,18 +37,16 @@ void Usage(int argc, char *argv[]) {
 }
 
 
-
 int main(int argc, char* argv[]) {
   Usage(argc, argv);
   std::string parametro{argv[3]};  // opcion escogida por el usuario
   std::string fichero_entrada{argv[1]};  // fichero de entrada
   std::string fichero_salida{argv[2]};  // fichero de salida
 
-
   if (parametro.length() == 1) { // comprobamos is el opcode es un solo caracter
     int opcion_usuario{std::stoi(parametro)};
-    std::ifstream fichero_leer{fichero_entrada};
-    std::ofstream fichero_escribir{fichero_salida};
+    std::ifstream fichero_leer{fichero_entrada};  // fichero para leer los datos
+    std::ofstream fichero_escribir{fichero_salida};   // fichero para escribir los datos
     std::string linea_actual;
 
     while (getline(fichero_leer, linea_actual)) {
@@ -63,21 +61,16 @@ int main(int argc, char* argv[]) {
       }
 
       switch(opcion_usuario) {    // comprobamos que opcion a elegido el usuario
-        case 1: Longitud(fichero_escribir);
+        case 1: Longitud(fichero_escribir, cadena);
         break;
-
-        case 2: Invertir(fichero_escribir);
+        case 2: Invertir(fichero_escribir, cadena);
         break;
-
-        case 3: Prefijos(fichero_escribir);
+        case 3: Prefijos(fichero_escribir, cadena);
         break;
-
-        case 4: Sufijos(fichero_escribir);
+        case 4: Sufijos(fichero_escribir, cadena);
         break;
-
-        case 5: Subcadenas(fichero_escribir);
+        case 5: Subcadenas(fichero_escribir, cadena);
         break;
-
         default: std::cout << "El opcode introducido no es válido, introduzca uno entre el 1 y el 5" << std::endl;
         break;
       }

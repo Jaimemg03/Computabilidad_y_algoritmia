@@ -84,6 +84,10 @@ bool Alfabeto::CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) {
   Simbolo simbolo_comprobar2; // variable que tomara el valor del simbolo de la cadena que estamos comprobando si esta en el alfabeto
   int posicion_comprobar{0}; // varibale que toma la posicion de la cadena en la cual empieza simbolo_comprobar2
 
+  if (kCadenaComprobar.GetCadenaStr() == "&") {   // si es una cadena vacia siempre pertenece al alfabeto
+    return true;
+  }
+
   for (int bucle1{0}; bucle1 < LongitudAlfabeto() && comprobacion_final == false;) {
     simbolo_comprobar1.SetSimbolo(AtAlfabeto(bucle1).GetSimbolo());   
     longitud_simbolo = simbolo_comprobar1.Longitud();

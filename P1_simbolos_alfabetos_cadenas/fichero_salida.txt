@@ -1,3 +1,4 @@
-Alfabeto: a b    Cadena: abbab   
-Alfabeto: 0 1 2 3 4 5 6 7 8 9    Cadena: 6793836   
-Alfabeto: h o l a    Cadena: hola   
+Alfabeto: a bc    Cadena: abbab   (la cadena no pertenece al alfabeto)   Sufijos: b ab bab bbab abbab 
+Alfabeto: 0 1 2 3 4 5 6 7 8 9    Cadena: 6793836   Sufijos: 6 36 836 3836 93836 793836 6793836 
+Alfabeto: h o l a    Cadena: hola   Sufijos: a la ola hola 
+Alfabeto: &    Cadena: &   Sufijos: 

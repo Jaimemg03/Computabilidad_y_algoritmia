@@ -99,10 +99,18 @@ std::ostream& operator<<(std::ostream& out, const Cadena& kCadenaMostrar) {
   return out;
 }
 
+ // sobrecarga del operador de inserción en flujo para mostrar un vector de cadenas
+std::ostream& operator<<(std::ostream& out, const std::vector<Cadena>& kVectorMostrar) {
+  for (int bucle{0}; bucle < kVectorMostrar.size(); ++bucle) {
+    out << kVectorMostrar[bucle] << " ";
+  }
+  return out;
+} 
+
 
 //------------------Ejercicios-Practica------------------//
 int Cadena::Longitud() const {
-  return int(cadena_.GetSimbolo().length());
+  return int(cadena_.Longitud());
 }
 
 
@@ -129,7 +137,6 @@ std::vector<Cadena> Cadena::Prefijos() const {
     Simbolo simbolo_concatenar = AtCadena(bucle);
     prefijo_anadir.ConcatenarDelante(simbolo_concatenar);
     vector_cadenas.push_back(prefijo_anadir);
-
   }
 
   return vector_cadenas;
@@ -140,15 +147,12 @@ std::vector<Cadena> Cadena::Prefijos() const {
 std::vector<Cadena> Cadena::Sufijos() const {
   std::vector<Cadena> vector_cadenas;
   Cadena cadena_invertir{Inversa()};
-  Cadena sufijo_anadir;
-  Cadena cadena_vacia{'&'};
-  vector_cadenas.push_back(cadena_vacia);  // incluyo la cadena vacía
+  Cadena sufijo_anadir;std::ostream& operator<<(std::ostream& out, const std::vector<Cadena>& kVectoMostrar);   // sobrecarga del operador de inserción en flujo para mostrar un vector de cadenasck(cadena_vacia);  // incluyo la cadena vacía
 
   for (int bucle{0}; bucle < Longitud(); ++bucle) {
     Simbolo simbolo_concatenar = cadena_invertir.AtCadena(bucle);
     sufijo_anadir.ConcatenarDetras(simbolo_concatenar);
     vector_cadenas.push_back(sufijo_anadir);
-
   }
   
   return vector_cadenas;
@@ -184,8 +188,7 @@ std::vector<Cadena> Cadena::Subcadenas() const {
   }
   
   return vector_subcadenas;
-}
-
+}std::ostream& operator<<(std::ostream& out, const std::vector<Cadena>& kVectoMostrar);   // sobrecarga del operador de inserción en flujo para mostrar un vector de cadenas
 
 
 

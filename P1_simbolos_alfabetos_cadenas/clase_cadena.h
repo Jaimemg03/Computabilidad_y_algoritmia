@@ -53,6 +53,7 @@ class Cadena {
 };
 
 std::ostream& operator<<(std::ostream& out, const Cadena& kCadenaMostrar);   // sobrecarga del operador de inserción en flujo para mostrar la Cadena
+std::ostream& operator<<(std::ostream& out, const std::vector<Cadena>& kVectorMostrar);   // sobrecarga del operador de inserción en flujo para mostrar un vector de cadenas
 
 
 #endif

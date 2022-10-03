@@ -37,54 +37,60 @@ void ObtieneAlfabetoCadena(const std::string& kLineaEntrada, Alfabeto& alfabeto,
 
   // creamos la cadena y el alfabeto
   if (vector_elementos.size() > 1) {  // comprobamos si hay más de un elemento en el vector
-    Simbolo simbolo_meter{vector_elementos[0]};
-    Alfabeto alfabeto_final{simbolo_meter};
-    for (int bucle2{1}; bucle2 < vector_elementos.size() - 1; ++bucle2) {  // creamos el alfabeto 
-      simbolo_meter.SetSimbolo(vector_elementos[bucle2]);
-      alfabeto_final.AnadirAlfabeto(simbolo_meter);
-    }
-    alfabeto.SetAlfabeto(alfabeto_final);
+    if (vector_elementos[vector_elementos.size() - 1] != "&") {  // comprobamos si es la cadena vacia o no
+      Simbolo simbolo_meter{vector_elementos[0]};
+      Alfabeto alfabeto_final{simbolo_meter};
 
-    simbolo_meter.SetSimbolo(vector_elementos[vector_elementos.size() - 1]);
-    cadena.SetCadena(simbolo_meter);   // metemos el último elemento del vector como cadena
+      for (int bucle2{1}; bucle2 < vector_elementos.size() - 1; ++bucle2) {  // creamos el alfabeto 
+        simbolo_meter.SetSimbolo(vector_elementos[bucle2]);
+        alfabeto_final.AnadirAlfabeto(simbolo_meter);
+      }
+      alfabeto.SetAlfabeto(alfabeto_final);
+      simbolo_meter.SetSimbolo(vector_elementos[vector_elementos.size() - 1]);
+      cadena.SetCadena(simbolo_meter);   // metemos el último elemento del vector como cadena
+
+    } else {  // la cadena es vacia
+      Simbolo simbolo_vacio{""};
+      cadena.SetCadena(simbolo_vacio);
+      }
 
   } else {  // si solo hay un elemento esa es la cadena y habria que obtener el alfabeto apartir de ahi
-    Simbolo simbolo_meter(vector_elementos[0]);
-    cadena.SetCadena(simbolo_meter);   // metemos el elemento del vector como cadena
+      Simbolo simbolo_meter(vector_elementos[0]);
+        cadena.SetCadena(simbolo_meter);   // metemos el elemento del vector como cadena
 
-    Alfabeto alfabeto_final{cadena};
-    alfabeto.SetAlfabeto(alfabeto_final);  // metemos el alfabeto a partir de la cadena
+        Alfabeto alfabeto_final{cadena};
+        alfabeto.SetAlfabeto(alfabeto_final);  // metemos el alfabeto a partir de la cadena
 
   }
 }
 
 
 // Método para saber la longitud de una cadena
-void Longitud(const std::ofstream& kFicheroSalida) {
-
+void Longitud(std::ofstream& kFicheroSalida, const Cadena& kCadena) {
+  kFicheroSalida << "Longitud: " << kCadena.Longitud();
 }
 
 
 // Método para saber linvertir una cadena
-void Invertir(const std::ofstream& kFicheroSalida) {
-
+void Invertir(std::ofstream& kFicheroSalida, const Cadena& kCadena) {
+  kFicheroSalida << "Invertir: " << kCadena.Inversa();
 }
 
 
 // Método para saber los prefijos de una cadena
-void Prefijos(const std::ofstream& kFicheroSalida) {
-
+void Prefijos(std::ofstream& kFicheroSalida, const Cadena& kCadena) {
+  kFicheroSalida << "Prefijos: " << kCadena.Prefijos();
 }
 
 
 // Método para saber los sufijos de una cadena
-void Sufijos(const std::ofstream& kFicheroSalida) {
-
+void Sufijos(std::ofstream& kFicheroSalida, const Cadena& kCadena) {
+  kFicheroSalida << "Sufijos: " << kCadena.Sufijos();
 }
 
 
 // Método para saber las subcadenas de una cadena
-void Subcadenas(const std::ofstream& kFicheroSalida) {
-
+void Subcadenas(std::ofstream& kFicheroSalida, const Cadena& kCadena) {
+  kFicheroSalida << "Subcadenas: " << kCadena.Subcadenas();
 }
 

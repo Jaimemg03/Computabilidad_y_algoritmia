@@ -22,18 +22,18 @@
 void ObtieneAlfabetoCadena(const std::string& kLineaEntrada, Alfabeto& alfabeto, Cadena& cadena);
 
 // Método para saber la longitud de una cadena
-void Longitud(const std::ofstream& kFicheroSalida);
+void Longitud(std::ofstream& kFicheroSalida, const Cadena& kCadena);
 
 // Método para saber linvertir una cadena
-void Invertir(const std::ofstream& kFicheroSalida);
+void Invertir(std::ofstream& kFicheroSalida, const Cadena& kCadena);
 
 // Método para saber los prefijos de una cadena
-void Prefijos(const std::ofstream& kFicheroSalida);
+void Prefijos(std::ofstream& kFicheroSalida, const Cadena& kCadena);
 
 // Método para saber los sufijos de una cadena
-void Sufijos(const std::ofstream& kFicheroSalida);
+void Sufijos(std::ofstream& kFicheroSalida, const Cadena& kCadena);
 
 // Método para saber las subcadenas de una cadena
-void Subcadenas(const std::ofstream& kFicheroSalida);
+void Subcadenas(std::ofstream& kFicheroSalida, const Cadena& kCadena);
 
 #endif
