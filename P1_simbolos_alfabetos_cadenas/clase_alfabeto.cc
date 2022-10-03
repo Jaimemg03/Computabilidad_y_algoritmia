@@ -26,6 +26,22 @@ Alfabeto::Alfabeto(const Simbolo& kSimboloAnadir) {
 
 }
 
+// constructor de la clase con un vector
+Alfabeto::Alfabeto(const std::vector<Simbolo>& kVectorSimboloAnadir) {
+  alfabeto_ = kVectorSimboloAnadir;
+} 
+
+// constructor de la clase apartir de una cadena
+Alfabeto::Alfabeto(const Cadena& kCadenaAlfabetoAnadir) {
+  Simbolo simbolo_meter;
+  std::string elemento_meter;
+  for(int bucle{0}; bucle < kCadenaAlfabetoAnadir.Longitud(); ++bucle) {
+    elemento_meter = kCadenaAlfabetoAnadir.GetCadenaStr()[bucle];  //transformamos el char en una string
+    simbolo_meter.SetSimbolo(elemento_meter); // creamos un nuevo simbolo
+    alfabeto_.push_back(simbolo_meter); // metemos en el alfabeto el simbolo apartir de la cadena
+  }
+}
+
 //getter de la clase Alfabeto
 std::vector<Simbolo> Alfabeto::GetAlfabeto() const {
   return alfabeto_;

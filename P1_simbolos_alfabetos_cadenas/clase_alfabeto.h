@@ -27,7 +27,10 @@
 
 class Alfabeto {
  public:
-  Alfabeto(const Simbolo& kSimboloAnadir);  // constructor de la clase
+  Alfabeto(const Simbolo& kSimboloAnadir);  // constructor de la clase apartir de un simbolo
+  Alfabeto(const std::vector<Simbolo>& kVectorSimboloAnadir);  // constructor de la clase con un vector
+  Alfabeto(const Cadena& kCadenaAlfabetoAnadir);  // constructor de la clase apartir de una cadena
+
   std::vector<Simbolo> GetAlfabeto() const;  //getter
   void SetAlfabeto(const Alfabeto& kAlfabetoCambiar);  //setter
   Simbolo AtAlfabeto(const int kPosicion) const;  // te da un simbolo en una determinada posicion del alfabeto

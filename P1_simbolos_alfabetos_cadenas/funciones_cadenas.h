@@ -18,7 +18,7 @@
 #define FUNCIONES_H
 
 // Método para sacar la cadena y el alfabeto de cada linea
-void ObtieneAlfabetoCadena(const std::string& kNombreFicheroEntrada, Alfabeto& alfabeto, Cadena cadena);
+void ObtieneAlfabetoCadena(const std::string& kLineaEntrada, Alfabeto& alfabeto, Cadena& cadena);
 
 // Método para saber la longitud de una cadena
 void Longitud(const std::ofstream& kFicheroSalida);
