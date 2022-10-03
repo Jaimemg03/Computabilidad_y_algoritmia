@@ -130,13 +130,19 @@ Cadena Cadena::Inversa() const {
 std::vector<Cadena> Cadena::Prefijos() const {
   std::vector<Cadena> vector_cadenas;
   Cadena prefijo_anadir;
-  Cadena cadena_vacia{'&'};
-  vector_cadenas.push_back(cadena_vacia);  // incluyo la cadena vacía
 
-  for (int bucle{0}; bucle < Longitud(); ++bucle) {
-    Simbolo simbolo_concatenar = AtCadena(bucle);
-    prefijo_anadir.ConcatenarDelante(simbolo_concatenar);
-    vector_cadenas.push_back(prefijo_anadir);
+  if (Longitud() == 0) {   // si es la cadena vacia el sufijo es vacío
+  Simbolo simbolo_vacio{"&"};
+  Cadena cadena_vacia{simbolo_vacio};
+  vector_cadenas.push_back(cadena_vacia);
+  }else {
+    Cadena cadena_vacia{'&'};
+    vector_cadenas.push_back(cadena_vacia);  // incluyo la cadena vacía
+    for (int bucle{0}; bucle < Longitud(); ++bucle) {
+      Simbolo simbolo_concatenar = AtCadena(bucle);
+      prefijo_anadir.ConcatenarDelante(simbolo_concatenar);
+      vector_cadenas.push_back(prefijo_anadir);
+    }
   }
 
   return vector_cadenas;
@@ -147,14 +153,22 @@ std::vector<Cadena> Cadena::Prefijos() const {
 std::vector<Cadena> Cadena::Sufijos() const {
   std::vector<Cadena> vector_cadenas;
   Cadena cadena_invertir{Inversa()};
-  Cadena sufijo_anadir;std::ostream& operator<<(std::ostream& out, const std::vector<Cadena>& kVectoMostrar);   // sobrecarga del operador de inserción en flujo para mostrar un vector de cadenasck(cadena_vacia);  // incluyo la cadena vacía
+  Cadena sufijo_anadir;
 
-  for (int bucle{0}; bucle < Longitud(); ++bucle) {
-    Simbolo simbolo_concatenar = cadena_invertir.AtCadena(bucle);
-    sufijo_anadir.ConcatenarDetras(simbolo_concatenar);
-    vector_cadenas.push_back(sufijo_anadir);
+  if (Longitud() == 0) {   // si es la cadena vacia el sufijo es vacío
+    Simbolo simbolo_vacio{"&"};
+    Cadena cadena_vacia{simbolo_vacio};
+    vector_cadenas.push_back(cadena_vacia);
+
+  } else {
+    for (int bucle{0}; bucle < Longitud(); ++bucle) {
+      Simbolo simbolo_concatenar = cadena_invertir.AtCadena(bucle);
+      sufijo_anadir.ConcatenarDetras(simbolo_concatenar);
+      vector_cadenas.push_back(sufijo_anadir);
+    }
+    Cadena cadena_vacia{'&'};
+    vector_cadenas.push_back(cadena_vacia);  // incluyo la cadena vacía
   }
-  
   return vector_cadenas;
 }
 
