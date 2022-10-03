@@ -9,6 +9,7 @@
 // Archivo funciones_cadenas.cc: Fichero que contiene las funciones del main
 // Historial de revisiones
 // 02/09/2022 - Creación, primera versión del código
+// 03/09/2022 - Terminadas las funciones para el main
 
 
 #include <iostream>
@@ -29,9 +30,7 @@ void ObtieneAlfabetoCadena(const std::string& kLineaEntrada, Alfabeto& alfabeto,
       palabra_meter = "";   // reiniciamos la string para volverla a usar
 
     } else {
-      if (kLineaEntrada[bucle1] != kEspacio) {   // nos aseguramos de no crear una string con un espacio en ella
         palabra_meter = palabra_meter + kLineaEntrada[bucle1];
-      }
     }
   }
   vector_elementos.push_back(palabra_meter);   // metemos la ultima palabra de la línea

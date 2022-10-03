@@ -56,7 +56,12 @@ int main(int argc, char* argv[]) {
       Alfabeto alfabeto{simbolo_vacio};  // alfabeto para rellenar
       Cadena cadena;  // cadena para rellenar
       ObtieneAlfabetoCadena(linea_actual, alfabeto, cadena);  // metodo para sacar la cadena y el alfabeto apartir el fichero de entrada
-                std::cout << alfabeto << "    " << cadena << std::endl;
+                
+      fichero_escribir << "Alfabeto: " << alfabeto << "   " << "Cadena: " << cadena << "   ";
+      if (alfabeto.CadenaPertenceAlfabeto(cadena) == false){
+        fichero_escribir << "(la cadena no pertenece al alfabeto)   ";
+      }
+
       switch(opcion_usuario) {    // comprobamos que opcion a elegido el usuario
         case 1: Longitud(fichero_escribir);
         break;
@@ -76,7 +81,8 @@ int main(int argc, char* argv[]) {
         default: std::cout << "El opcode introducido no es válido, introduzca uno entre el 1 y el 5" << std::endl;
         break;
       }
-    
+
+      fichero_escribir << std::endl;
     }
   } else {
     std::cout << "El opcode introducido no es válido, introduzca uno entre el 1 y el 5 " << std::endl;

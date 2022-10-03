@@ -9,6 +9,7 @@
 // Archivo funciones_cadenas.h: Fichero que contiene las definiciones de las funciones del main
 // Historial de revisiones
 // 02/09/2022 - Creación, primera versión del código
+// 03/09/2022 - Terminadas las funciones para el main
 
 
 #include <iostream>
