@@ -14,6 +14,7 @@
 
 #include <iostream>
 
+#include "clase_alfabeto.h"
 
 #ifndef FUNCIONES_H
 #define FUNCIONES_H
@@ -22,7 +23,7 @@
 void ObtieneAlfabetoCadena(const std::string& kLineaEntrada, Alfabeto& alfabeto, Cadena& cadena);
 
 // Método para saber la longitud de una cadena
-void Longitud(std::ofstream& kFicheroSalida, const Cadena& kCadena);
+void Longitud(std::ofstream& kFicheroSalida, const Cadena& kCadena, const Alfabeto& kAlfabeto);
 
 // Método para saber linvertir una cadena
 void Invertir(std::ofstream& kFicheroSalida, const Cadena& kCadena);

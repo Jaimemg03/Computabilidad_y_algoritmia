@@ -15,7 +15,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "clase_alfabeto.h"
+#include "funciones_cadenas.h"
 
 // Método para sacar la cadena y el alfabeto de cada linea cogiendo como referencia estas dos para trabajar sobre ellas
 void ObtieneAlfabetoCadena(const std::string& kLineaEntrada, Alfabeto& alfabeto, Cadena& cadena) {
@@ -66,8 +66,8 @@ void ObtieneAlfabetoCadena(const std::string& kLineaEntrada, Alfabeto& alfabeto,
 
 
 // Método para saber la longitud de una cadena
-void Longitud(std::ofstream& kFicheroSalida, const Cadena& kCadena) {
-  kFicheroSalida << "Longitud: " << kCadena.Longitud();
+void Longitud(std::ofstream& kFicheroSalida, const Cadena& kCadena, const Alfabeto& kAlfabeto) {
+  kFicheroSalida << "Longitud: " << kAlfabeto.CantidadSimbolosCadena(kCadena);
 }
 
 

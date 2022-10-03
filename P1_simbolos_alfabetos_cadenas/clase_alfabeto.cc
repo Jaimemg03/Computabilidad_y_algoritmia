@@ -77,7 +77,7 @@ int Alfabeto::LongitudAlfabeto() const {
 }  
 
 // Método que comprueba si la cadena pertenece al alfabeto
-bool Alfabeto::CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) {
+bool Alfabeto::CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) const {
   bool comprobacion_final{false};   // variable que comprueba si la cadena pertenece al alfabeto
   Simbolo simbolo_comprobar1; // variable que tomara el valor del simbolo  del alfabeto que estamos comprobando si esta en la cadena
   int longitud_simbolo;  // variable que tomará la longitud del simbolo_comprobar para saber el tamaño de comparación
@@ -115,6 +115,46 @@ bool Alfabeto::CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) {
   
   return comprobacion_final;
 }
+
+// Método que te dice cuantos simbolos de ese alfabeto tienes en esa cadena
+int Alfabeto::CantidadSimbolosCadena(const Cadena& kCadenaComprobar) const {
+  int cantidad_simbolos{0};  // variable para contar cuantos simbolos tiene la cadena
+  bool comprobacion_final{false};   // variable que comprueba si la cadena pertenece al alfabeto
+  Simbolo simbolo_comprobar1; // variable que tomara el valor del simbolo  del alfabeto que estamos comprobando si esta en la cadena
+  int longitud_simbolo;  // variable que tomará la longitud del simbolo_comprobar para saber el tamaño de comparación
+  Simbolo simbolo_comprobar2; // variable que tomara el valor del simbolo de la cadena que estamos comprobando si esta en el alfabeto
+  int posicion_comprobar{0}; // varibale que toma la posicion de la cadena en la cual empieza simbolo_comprobar2
+
+  if (kCadenaComprobar.GetCadenaStr() == "&") {   // si es una cadena vacia su longitud es 0
+    return 0;
+  }
+
+  for (int bucle1{0}; bucle1 < LongitudAlfabeto();) {
+    simbolo_comprobar1.SetSimbolo(AtAlfabeto(bucle1).GetSimbolo());   
+    longitud_simbolo = simbolo_comprobar1.Longitud();
+    simbolo_comprobar2.SetSimbolo("");    // vaciamos el simbolo para volver a reellenarlo con el siguiente
+
+    for (int bucle2{0}; bucle2 < longitud_simbolo && posicion_comprobar < kCadenaComprobar.Longitud(); ++bucle2) {  // rellenamos un simbolo para comprobar partiendo de la cadena
+      simbolo_comprobar2.Concatenar(kCadenaComprobar.GetCadenaStr()[posicion_comprobar]);
+      if (posicion_comprobar < kCadenaComprobar.Longitud()) {
+        ++posicion_comprobar;
+      }
+
+    }
+
+    if (simbolo_comprobar1 != simbolo_comprobar2) {   // si esa parte de la cadena ya está en el alfabeto avanzamos hasta la siguiente parte a comprobar
+      posicion_comprobar = posicion_comprobar - simbolo_comprobar2.Longitud();
+      ++bucle1;  // sumamos uno a bucle para seguir buscando un simbolo
+    } else {
+      bucle1 = 0;   // si son iguales volvemos a comprobar desde la cadena del principio 
+      ++cantidad_simbolos;  // sumamos la cantida de simblos porque encotramos uno que está en la cadena
+    }
+    
+  }
+
+  return cantidad_simbolos;
+}   
+
 
 
 //------------------Sobrecarga-Operadores------------------//

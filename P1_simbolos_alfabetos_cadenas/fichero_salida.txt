@@ -1,4 +1,7 @@
-Alfabeto: a bc    Cadena: abbab   (la cadena no pertenece al alfabeto)   Invertir: babba
-Alfabeto: 0 1 2 3 4 5 6 7 8 9    Cadena: 6793836   Invertir: 6383976
-Alfabeto: h o l a    Cadena: hola   Invertir: aloh
-Alfabeto: &    Cadena: &   Invertir: &
+Alfabeto: a bc    Cadena: abbab   (la cadena no pertenece al alfabeto)   
+Alfabeto: 0 1 2 3 4 5 6 7 8 9    Cadena: 6793836   Sufijos: & 6 36 836 3836 93836 793836 6793836 
+Alfabeto: h o l a    Cadena: hola   Sufijos: & a la ola hola 
+Alfabeto: &    Cadena: &   Sufijos: & 
+Alfabeto: vez no a    Cadena: avezno   Sufijos: & o no zno ezno vezno avezno 
+Alfabeto: diuuu dsdads a c fol n p    Cadena: diuuufolna   Sufijos: & a na lna olna folna ufolna uufolna uuufolna iuuufolna diuuufolna 
+Alfabeto: 01 20 3456    Cadena: 010120   Sufijos: & 0 20 120 0120 10120 010120 

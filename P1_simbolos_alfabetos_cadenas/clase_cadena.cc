@@ -161,13 +161,13 @@ std::vector<Cadena> Cadena::Sufijos() const {
     vector_cadenas.push_back(cadena_vacia);
 
   } else {
+    Cadena cadena_vacia{'&'};
+    vector_cadenas.push_back(cadena_vacia);  // incluyo la cadena vacía
     for (int bucle{0}; bucle < Longitud(); ++bucle) {
       Simbolo simbolo_concatenar = cadena_invertir.AtCadena(bucle);
       sufijo_anadir.ConcatenarDetras(simbolo_concatenar);
       vector_cadenas.push_back(sufijo_anadir);
     }
-    Cadena cadena_vacia{'&'};
-    vector_cadenas.push_back(cadena_vacia);  // incluyo la cadena vacía
   }
   return vector_cadenas;
 }

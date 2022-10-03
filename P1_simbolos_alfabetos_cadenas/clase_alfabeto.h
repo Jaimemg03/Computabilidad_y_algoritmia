@@ -37,7 +37,8 @@ class Alfabeto {
 
   void AnadirAlfabeto(const Simbolo& kSimboloAnadir) ;   // Método para añadir un simbolo en el alfabeto
   int LongitudAlfabeto() const;   // Muestra cuantos simbolos tiene el alfabeto
-  bool CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar);    // Método que comprueba si la cadena pertenece al alfabeto
+  bool CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) const;    // Método que comprueba si la cadena pertenece al alfabeto
+  int CantidadSimbolosCadena(const Cadena& kCadenaComprobar) const;    // Método que te dice cuantos simbolos de ese alfabeto tienes en esa cadena
 
  private:
   std::vector<Simbolo> alfabeto_;     // el vector donde se guardaran las cadenas

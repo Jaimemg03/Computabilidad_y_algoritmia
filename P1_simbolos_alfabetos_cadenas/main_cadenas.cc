@@ -58,23 +58,22 @@ int main(int argc, char* argv[]) {
       fichero_escribir << "Alfabeto: " << alfabeto << "   " << "Cadena: " << cadena << "   ";
       if (alfabeto.CadenaPertenceAlfabeto(cadena) == false){
         fichero_escribir << "(la cadena no pertenece al alfabeto)   ";
+      } else{
+        switch(opcion_usuario) {    // comprobamos que opcion a elegido el usuario
+          case 1: Longitud(fichero_escribir, cadena, alfabeto);
+          break;
+          case 2: Invertir(fichero_escribir, cadena);
+          break;
+          case 3: Prefijos(fichero_escribir, cadena);
+          break;
+          case 4: Sufijos(fichero_escribir, cadena);
+          break;
+          case 5: Subcadenas(fichero_escribir, cadena);
+          break;
+          default: std::cout << "El opcode introducido no es válido, introduzca uno entre el 1 y el 5" << std::endl;
+          break;
+        }
       }
-
-      switch(opcion_usuario) {    // comprobamos que opcion a elegido el usuario
-        case 1: Longitud(fichero_escribir, cadena);
-        break;
-        case 2: Invertir(fichero_escribir, cadena);
-        break;
-        case 3: Prefijos(fichero_escribir, cadena);
-        break;
-        case 4: Sufijos(fichero_escribir, cadena);
-        break;
-        case 5: Subcadenas(fichero_escribir, cadena);
-        break;
-        default: std::cout << "El opcode introducido no es válido, introduzca uno entre el 1 y el 5" << std::endl;
-        break;
-      }
-
       fichero_escribir << std::endl;
     }
   } else {
