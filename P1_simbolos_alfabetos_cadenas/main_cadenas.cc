@@ -54,10 +54,10 @@ int main(int argc, char* argv[]) {
       Alfabeto alfabeto{simbolo_vacio};  // alfabeto para rellenar
       Cadena cadena;  // cadena para rellenar
       ObtieneAlfabetoCadena(linea_actual, alfabeto, cadena);  // metodo para sacar la cadena y el alfabeto apartir el fichero de entrada
-                
-      fichero_escribir << "Alfabeto: " << alfabeto << "   " << "Cadena: " << cadena << "   ";
+
+      fichero_escribir << "Alfabeto: " << alfabeto << " | " << "Cadena: " << cadena << " | ";
       if (alfabeto.CadenaPertenceAlfabeto(cadena) == false){
-        fichero_escribir << "(la cadena no pertenece al alfabeto)   ";
+        fichero_escribir << "(la cadena no pertenece al alfabeto)";
       } else{
         switch(opcion_usuario) {    // comprobamos que opcion a elegido el usuario
           case 1: Longitud(fichero_escribir, cadena, alfabeto);

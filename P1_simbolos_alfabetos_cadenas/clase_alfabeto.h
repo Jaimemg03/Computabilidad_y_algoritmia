@@ -24,7 +24,6 @@
 
 
 // clase Alfabeto que permite crear alfabetos apartir de cadenas y trabajar con ellos
-
 class Alfabeto {
  public:
   Alfabeto(const Simbolo& kSimboloAnadir);  // constructor de la clase apartir de un simbolo

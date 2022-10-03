@@ -71,13 +71,18 @@ void Cadena::ResetCadena() {
 
 // sirve para conseguir un simbolo de la cadena especifico en string
 Simbolo Cadena::AtCadena(const int kPosicion) const {
-  if (kPosicion < cadena_.GetSimbolo().length()) {
+  if (kPosicion < Longitud()) {   // si estamos accediendo a una posicion mayor de la que tiene la cadena pornemos la vacía
     Simbolo simbolo_entregar{cadena_.GetSimbolo()[kPosicion]};
     return simbolo_entregar;
   }
   Simbolo simbolo_vacio{"&"};
   return simbolo_vacio;
 }  
+
+// Método que da la longitud(en char) de la cadena
+int Cadena::Longitud() const {
+  return int(cadena_.Longitud());
+}
 
 
 //------------------Sobrecarga-de-operadores------------------//
@@ -91,10 +96,8 @@ Cadena Cadena::operator+(const Simbolo& kSimboloAnadir) {
 std::ostream& operator<<(std::ostream& out, const Cadena& kCadenaMostrar) {
   if (kCadenaMostrar.Longitud() == 0) {   // si tiene tamaño 0 muestra que es una cadena vacía
     out << "&";
-
   } else {
     out << kCadenaMostrar.GetCadenaStr();
-
   }
   return out;
 }
@@ -109,11 +112,6 @@ std::ostream& operator<<(std::ostream& out, const std::vector<Cadena>& kVectorMo
 
 
 //------------------Ejercicios-Practica------------------//
-int Cadena::Longitud() const {
-  return int(cadena_.Longitud());
-}
-
-
 // Método que crea una cadena inversa
 Cadena Cadena::Inversa() const {
   Cadena cadena_inversa;
@@ -131,7 +129,7 @@ std::vector<Cadena> Cadena::Prefijos() const {
   std::vector<Cadena> vector_cadenas;
   Cadena prefijo_anadir;
 
-  if (Longitud() == 0) {   // si es la cadena vacia el sufijo es vacío
+  if (Longitud() == 0) {   // si es la cadena vacia el prefijo es vacío
   Simbolo simbolo_vacio{"&"};
   Cadena cadena_vacia{simbolo_vacio};
   vector_cadenas.push_back(cadena_vacia);
@@ -200,9 +198,7 @@ std::vector<Cadena> Cadena::Subcadenas() const {
     }
     subcadena_anadir.ResetCadena();
   }
-  
   return vector_subcadenas;
-}std::ostream& operator<<(std::ostream& out, const std::vector<Cadena>& kVectoMostrar);   // sobrecarga del operador de inserción en flujo para mostrar un vector de cadenas
-
+}
 
 

@@ -84,7 +84,7 @@ bool Alfabeto::CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) const {
   Simbolo simbolo_comprobar2; // variable que tomara el valor del simbolo de la cadena que estamos comprobando si esta en el alfabeto
   int posicion_comprobar{0}; // varibale que toma la posicion de la cadena en la cual empieza simbolo_comprobar2
 
-  if (kCadenaComprobar.GetCadenaStr() == "&") {   // si es una cadena vacia siempre pertenece al alfabeto
+  if ((kCadenaComprobar.GetCadenaStr() == "&") || (kCadenaComprobar.GetCadenaStr() == "")) {   // si es una cadena vacia siempre pertenece al alfabeto
     return true;
   }
 
@@ -116,6 +116,8 @@ bool Alfabeto::CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) const {
   return comprobacion_final;
 }
 
+
+//------------------Ejercicio-Practica------------------//
 // Método que te dice cuantos simbolos de ese alfabeto tienes en esa cadena
 int Alfabeto::CantidadSimbolosCadena(const Cadena& kCadenaComprobar) const {
   int cantidad_simbolos{0};  // variable para contar cuantos simbolos tiene la cadena

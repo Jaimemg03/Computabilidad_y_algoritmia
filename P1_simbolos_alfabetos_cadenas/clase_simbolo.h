@@ -33,7 +33,6 @@ class Simbolo {
 
  private:
   std::string simbolo_;
-
 };
 
 std::ostream& operator<<(std::ostream& out, const Simbolo& kSimboloMostrar);   // sobrecarga del operador de inserción en flujo para mostrar el simbolo

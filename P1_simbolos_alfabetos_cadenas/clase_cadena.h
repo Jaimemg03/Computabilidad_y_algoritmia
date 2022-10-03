@@ -37,11 +37,11 @@ class Cadena {
   std::string GetCadenaStr() const;   // getter que da un string
   void ResetCadena();   // resetea la cadena para que no contenga ningún simbolo
   Simbolo AtCadena(const int kPosicion) const;    // sirve para conseguir un simbolo de la cadena especifico en string
+  int Longitud() const;  // Método que da la longitud(en char) de la cadena
 
   Cadena operator+(const Simbolo& kSimboloAnadir);   // sobrecarga del operador + para ampliar la cadena concatenando una Simbolo
   Cadena operator+(const char& kSimboloAnadir);   // sobrecarga del operador + para ampliar la cadena concatenando un char
 
-  int Longitud() const;
   Cadena Inversa() const;   // Método que crea una cadena inversa
   std::vector<Cadena> Prefijos() const;    // Método que incluye en un vector todos los prefijos de la cadena
   std::vector<Cadena> Sufijos() const;    // Método que incluye en un vector todos los sufijos de la cadena

@@ -44,7 +44,7 @@ void Simbolo::Concatenar(const char& kCaracterConcatenar) {
 
 }
 
-// Metodo que otroga la longitud del simbolo
+// Metodo que otorga la longitud del simbolo
 int Simbolo::Longitud() const {
   return int(simbolo_.length());
 }
@@ -54,12 +54,10 @@ int Simbolo::Longitud() const {
 
 // sobrecarga del operador de inserción en flujo para mostrar el simbolo
 std::ostream& operator<<(std::ostream& out, const Simbolo& kSimboloMostrar) {
-  if (kSimboloMostrar.Longitud() == 0) {   // si tiene tamaño 0 muestra que es una simbolo vacía
+  if (kSimboloMostrar.Longitud() == 0) {   // si tiene tamaño 0 muestra que es un simbolo vacío
     out << "&";
-
   } else {
     out << kSimboloMostrar.GetSimbolo();
-
   }
   return out;
 }

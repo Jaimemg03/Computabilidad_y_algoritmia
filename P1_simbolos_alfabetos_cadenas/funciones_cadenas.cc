@@ -37,22 +37,21 @@ void ObtieneAlfabetoCadena(const std::string& kLineaEntrada, Alfabeto& alfabeto,
 
   // creamos la cadena y el alfabeto
   if (vector_elementos.size() > 1) {  // comprobamos si hay más de un elemento en el vector
-    if (vector_elementos[vector_elementos.size() - 1] != "&") {  // comprobamos si es la cadena vacia o no
-      Simbolo simbolo_meter{vector_elementos[0]};
-      Alfabeto alfabeto_final{simbolo_meter};
+    Simbolo simbolo_meter{vector_elementos[0]};
+    Alfabeto alfabeto_final{simbolo_meter};
+    for (int bucle2{1}; bucle2 < vector_elementos.size() - 1; ++bucle2) {  // creamos el alfabeto 
+      simbolo_meter.SetSimbolo(vector_elementos[bucle2]);
+      alfabeto_final.AnadirAlfabeto(simbolo_meter);
+    }
+    alfabeto.SetAlfabeto(alfabeto_final);   // ponemos el alfabeto recogido
 
-      for (int bucle2{1}; bucle2 < vector_elementos.size() - 1; ++bucle2) {  // creamos el alfabeto 
-        simbolo_meter.SetSimbolo(vector_elementos[bucle2]);
-        alfabeto_final.AnadirAlfabeto(simbolo_meter);
-      }
-      alfabeto.SetAlfabeto(alfabeto_final);
-      simbolo_meter.SetSimbolo(vector_elementos[vector_elementos.size() - 1]);
-      cadena.SetCadena(simbolo_meter);   // metemos el último elemento del vector como cadena
-
-    } else {  // la cadena es vacia
+    if (vector_elementos[vector_elementos.size() - 1] == "&") {  // comprobamos si es la cadena vacia o no
       Simbolo simbolo_vacio{""};
       cadena.SetCadena(simbolo_vacio);
-      }
+    } else {  // la cadena no es vacía
+      simbolo_meter.SetSimbolo(vector_elementos[vector_elementos.size() - 1]);
+      cadena.SetCadena(simbolo_meter);   // metemos el último elemento del vector como cadena
+    }
 
   } else {  // si solo hay un elemento esa es la cadena y habria que obtener el alfabeto apartir de ahi
       Simbolo simbolo_meter(vector_elementos[0]);
@@ -60,7 +59,6 @@ void ObtieneAlfabetoCadena(const std::string& kLineaEntrada, Alfabeto& alfabeto,
 
         Alfabeto alfabeto_final{cadena};
         alfabeto.SetAlfabeto(alfabeto_final);  // metemos el alfabeto a partir de la cadena
-
   }
 }
 

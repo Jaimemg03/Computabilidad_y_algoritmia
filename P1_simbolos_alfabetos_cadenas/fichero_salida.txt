@@ -1,7 +1,9 @@
-Alfabeto: a bc    Cadena: abbab   (la cadena no pertenece al alfabeto)   
-Alfabeto: 0 1 2 3 4 5 6 7 8 9    Cadena: 6793836   Sufijos: & 6 36 836 3836 93836 793836 6793836 
-Alfabeto: h o l a    Cadena: hola   Sufijos: & a la ola hola 
-Alfabeto: &    Cadena: &   Sufijos: & 
-Alfabeto: vez no a    Cadena: avezno   Sufijos: & o no zno ezno vezno avezno 
-Alfabeto: diuuu dsdads a c fol n p    Cadena: diuuufolna   Sufijos: & a na lna olna folna ufolna uufolna uuufolna iuuufolna diuuufolna 
-Alfabeto: 01 20 3456    Cadena: 010120   Sufijos: & 0 20 120 0120 10120 010120 
+Alfabeto: a bc  | Cadena: abbab | (la cadena no pertenece al alfabeto)
+Alfabeto: 0 1 2 3 4 5 6 7 8 9  | Cadena: 6793836 | Longitud: 7
+Alfabeto: h o l a  | Cadena: hola | Longitud: 4
+Alfabeto: d e  | Cadena: & | Longitud: 0
+Alfabeto: Error: Alfabeto no puede estar vacio | Cadena: & | Longitud: 0
+Alfabeto: vez no a  | Cadena: avezno | Longitud: 3
+Alfabeto: diuuu dsdads a c fol n p  | Cadena: diuuufolna | Longitud: 4
+Alfabeto: 01 20 3456  | Cadena: 010120 | Longitud: 3
+Alfabeto: a b c d e  | Cadena: & | Longitud: 0
