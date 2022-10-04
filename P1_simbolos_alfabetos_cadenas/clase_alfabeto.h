@@ -38,6 +38,7 @@ class Alfabeto {
   int LongitudAlfabeto() const;   // Muestra cuantos simbolos tiene el alfabeto
   bool CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) const;    // Método que comprueba si la cadena pertenece al alfabeto
   int CantidadSimbolosCadena(const Cadena& kCadenaComprobar) const;    // Método que te dice cuantos simbolos de ese alfabeto tienes en esa cadena
+  std::vector<int> NumeroRepeticionesSimbolos(const Cadena& kCadenaComprobar) const;   // Método que te dice las repeticones de los simbolos del alfabeto en la cadena
 
  private:
   std::vector<Simbolo> alfabeto_;     // el vector donde se guardaran las cadenas

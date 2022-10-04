@@ -70,6 +70,8 @@ int main(int argc, char* argv[]) {
           break;
           case 5: Subcadenas(fichero_escribir, cadena);
           break;
+          case 6: AparicionesSimbolos(fichero_escribir, cadena, alfabeto);
+          break;
           default: std::cout << "El opcode introducido no es válido, introduzca uno entre el 1 y el 5" << std::endl;
           break;
         }

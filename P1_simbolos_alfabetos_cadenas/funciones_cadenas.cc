@@ -92,3 +92,11 @@ void Subcadenas(std::ofstream& kFicheroSalida, const Cadena& kCadena) {
   kFicheroSalida << "Subcadenas: " << kCadena.Subcadenas();
 }
 
+// Método para saber cuantas veces se repiten los simbolos por pantalla
+void AparicionesSimbolos(std::ofstream& kFicheroSalida, const Cadena& kCadena, const Alfabeto& kAlfabeto) {
+  std::vector<int> vector_mostrar{kAlfabeto.NumeroRepeticionesSimbolos(kCadena)};
+  for(int bucle{0}; bucle < vector_mostrar.size(); ++bucle) {
+    kFicheroSalida << kAlfabeto.AtAlfabeto(bucle) << " rep(" << vector_mostrar[bucle] << ")   ";
+  }
+}
+

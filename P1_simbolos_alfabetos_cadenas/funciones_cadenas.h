@@ -19,22 +19,25 @@
 #ifndef FUNCIONES_H
 #define FUNCIONES_H
 
-// Método para sacar la cadena y el alfabeto de cada linea
+// Método para sacar la cadena y el alfabeto de cada linea por pantalla
 void ObtieneAlfabetoCadena(const std::string& kLineaEntrada, Alfabeto& alfabeto, Cadena& cadena);
 
-// Método para saber la longitud de una cadena
+// Método para saber la longitud de una cadena por pantalla
 void Longitud(std::ofstream& kFicheroSalida, const Cadena& kCadena, const Alfabeto& kAlfabeto);
 
-// Método para saber linvertir una cadena
+// Método para saber linvertir una cadena por pantalla
 void Invertir(std::ofstream& kFicheroSalida, const Cadena& kCadena);
 
-// Método para saber los prefijos de una cadena
+// Método para saber los prefijos de una cadena por pantalla
 void Prefijos(std::ofstream& kFicheroSalida, const Cadena& kCadena);
 
-// Método para saber los sufijos de una cadena
+// Método para saber los sufijos de una cadena por pantalla
 void Sufijos(std::ofstream& kFicheroSalida, const Cadena& kCadena);
 
-// Método para saber las subcadenas de una cadena
+// Método para saber las subcadenas de una cadena por pantalla
 void Subcadenas(std::ofstream& kFicheroSalida, const Cadena& kCadena);
+
+// Método para saber cuantas veces se repiten los simbolos por pantalla
+void AparicionesSimbolos(std::ofstream& kFicheroSalida, const Cadena& kCadena, const Alfabeto& kAlfabeto);
 
 #endif

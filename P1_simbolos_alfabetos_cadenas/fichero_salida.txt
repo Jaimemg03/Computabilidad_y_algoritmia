@@ -1,9 +1,3 @@
-Alfabeto: a bc  | Cadena: abbab | (la cadena no pertenece al alfabeto)
-Alfabeto: 0 1 2 3 4 5 6 7 8 9  | Cadena: 6793836 | Longitud: 7
-Alfabeto: h o l a  | Cadena: hola | Longitud: 4
-Alfabeto: d e  | Cadena: & | Longitud: 0
-Alfabeto: Error: Alfabeto no puede estar vacio | Cadena: & | Longitud: 0
-Alfabeto: vez no a  | Cadena: avezno | Longitud: 3
-Alfabeto: diuuu dsdads a c fol n p  | Cadena: diuuufolna | Longitud: 4
-Alfabeto: 01 20 3456  | Cadena: 010120 | Longitud: 3
-Alfabeto: a b c d e  | Cadena: & | Longitud: 0
+Alfabeto: 0 1  | Cadena: 00101 | 0 rep(3)   1 rep(2)   
+Alfabeto: a b c  | Cadena: acbbca | a rep(2)   b rep(2)   c rep(2)   
+Alfabeto: 1 01 001  | Cadena: 011001001 | 1 rep(1)   01 rep(1)   001 rep(2)   
