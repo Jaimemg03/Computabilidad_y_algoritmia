@@ -1,3 +1,5 @@
-Alfabeto: 0 1  | Cadena: 00101 | 0 rep(3)   1 rep(2)   
-Alfabeto: a b c  | Cadena: acbbca | a rep(2)   b rep(2)   c rep(2)   
-Alfabeto: 1 01 001  | Cadena: 011001001 | 1 rep(1)   01 rep(1)   001 rep(2)   
+Alfabeto: 0 1  | Cadena: 00101 | Longitud: 5
+Alfabeto: a b c  | Cadena: acbbca | Longitud: 6
+Alfabeto: 1 01 001  | Cadena: 011001001 | Longitud: 4
+Alfabeto: 111 222 10111  | Cadena: 222111 | Longitud: 2
+Alfabeto: k kk lll  | Cadena: lllk | Longitud: 2

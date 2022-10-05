@@ -16,6 +16,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <set>
 
 #include "clase_cadena.h"
 
@@ -41,10 +42,11 @@ class Alfabeto {
   std::vector<int> NumeroRepeticionesSimbolos(const Cadena& kCadenaComprobar) const;   // Método que te dice las repeticones de los simbolos del alfabeto en la cadena
 
  private:
-  std::vector<Simbolo> alfabeto_;     // el vector donde se guardaran las cadenas
+  std::set<Simbolo> alfabeto_;     // el vector donde se guardaran las cadenas
 
 };
 
 std::ostream& operator<<(std::ostream& out, const Alfabeto& kAlfabetoMostrar);   // sobrecarga del operador de inserción en flujo para mostrar el alfabeto
+bool operator<(const Simbolo& simbolo_comparar1, const Simbolo& simbolo_comparar2);   // sobrecarga del operador < para la clase set
 
 #endif

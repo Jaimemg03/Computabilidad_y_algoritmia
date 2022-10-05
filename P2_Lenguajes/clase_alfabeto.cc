@@ -22,13 +22,15 @@
 //------------------Métodos-de-clase------------------//
 // constructor de la clase Alfabeto
 Alfabeto::Alfabeto(const Simbolo& kSimboloAnadir) {
-  alfabeto_.push_back(kSimboloAnadir);
+  alfabeto_.insert(kSimboloAnadir);
 
 }
 
 // constructor de la clase con un vector
 Alfabeto::Alfabeto(const std::vector<Simbolo>& kVectorSimboloAnadir) {
-  alfabeto_ = kVectorSimboloAnadir;
+  for(int bucle{0}; bucle < kVectorSimboloAnadir.size(); ++bucle) {
+    alfabeto_.insert(kVectorSimboloAnadir[bucle]);
+  }
 } 
 
 // constructor de la clase apartir de una cadena
@@ -38,27 +40,32 @@ Alfabeto::Alfabeto(const Cadena& kCadenaAlfabetoAnadir) {
   for(int bucle{0}; bucle < kCadenaAlfabetoAnadir.Longitud(); ++bucle) {
     elemento_meter = kCadenaAlfabetoAnadir.GetCadenaStr()[bucle];  //transformamos el char en una string
     simbolo_meter.SetSimbolo(elemento_meter); // creamos un nuevo simbolo
-    alfabeto_.push_back(simbolo_meter); // metemos en el alfabeto el simbolo apartir de la cadena
+    alfabeto_.insert(simbolo_meter); // metemos en el alfabeto el simbolo apartir de la cadena
   }
 }
 
 //getter de la clase Alfabeto
 std::vector<Simbolo> Alfabeto::GetAlfabeto() const {
-  return alfabeto_;
+  std::vector<Simbolo> vector_entregar;
+  for (Simbolo bucle : alfabeto_) {   // para rellenar el vector con las posibles posiciones a elegir
+    vector_entregar.push_back(bucle);
+  }
+  return vector_entregar;
 } 
 
 //setter de la clase Alfabeto
 void Alfabeto::SetAlfabeto(const Alfabeto& kAlfabetoCambiar) {
   alfabeto_.clear();
   for (int bucle{0}; bucle < kAlfabetoCambiar.LongitudAlfabeto(); ++bucle) {
-    alfabeto_.push_back(kAlfabetoCambiar.AtAlfabeto(bucle));
+    alfabeto_.insert(kAlfabetoCambiar.AtAlfabeto(bucle));
   }
 }
 
 // te da un simbolo en una determinada posicion del alfabeto
 Simbolo Alfabeto::AtAlfabeto(const int kPosicion) const {
   if (kPosicion < LongitudAlfabeto() && kPosicion >= 0 ) {   // comprobamos si estamos accediendo a un elemento existente del vector
-    return alfabeto_[kPosicion];
+    std::vector<Simbolo> vector_alfabeto{GetAlfabeto()};
+    return vector_alfabeto[kPosicion];
   } else {
     Simbolo simbolo_vacio{""};
     return simbolo_vacio;
@@ -68,7 +75,7 @@ Simbolo Alfabeto::AtAlfabeto(const int kPosicion) const {
 
 // Método para añadir un simbolo en el alfabeto
 void Alfabeto::AnadirAlfabeto(const Simbolo& kSimboloAnadir) {
-  alfabeto_.push_back(kSimboloAnadir);
+  alfabeto_.insert(kSimboloAnadir);
 }
 
 // Muestra cuantos simbolos tiene el alfabeto
@@ -114,6 +121,7 @@ bool Alfabeto::CadenaPertenceAlfabeto(const Cadena& kCadenaComprobar) const {
   }
   
   return comprobacion_final;
+
 }
 
 
@@ -155,6 +163,7 @@ int Alfabeto::CantidadSimbolosCadena(const Cadena& kCadenaComprobar) const {
   }
 
   return cantidad_simbolos;
+
 }   
 
 
@@ -173,6 +182,18 @@ std::ostream& operator<<(std::ostream& out, const Alfabeto& kAlfabetoMostrar) {
   }
   return out;
 }  
+
+// sobrecarga del operador < para la clase set
+bool operator<(const Simbolo& simbolo_comparar1, const Simbolo& simbolo_comparar2) {
+  if(simbolo_comparar1.Longitud() < simbolo_comparar2.Longitud()) {
+    return true;
+  } else if((simbolo_comparar1.Longitud() == simbolo_comparar2.Longitud()) && (simbolo_comparar1.GetSimbolo() != simbolo_comparar2.GetSimbolo())) {  // si es distinta cadena pero misma longitud es verdadero
+    return true;
+  }
+  return false;   // si es la misma cadena(el último caso que queda) retorna falso
+}
+
+
 
 
 //------------------MODIFICACION-CLASE------------------//
