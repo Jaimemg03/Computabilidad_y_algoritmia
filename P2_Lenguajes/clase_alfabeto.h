@@ -2,10 +2,10 @@
 // 2º de Grado en Ingeniería Informática.  
 // Asignatura: Computabilidad y Algoritmia
 
-// Práctica 1: Símbolos, alfabetos y cadenas
+// Práctica 2: Lenguajes
 // Autor: Francisco David Hernández Alayón
 // Correo: alu0101469898@ull.edu.es
-// Fecha: 04/10/2022
+// Fecha: 11/10/2022
 // Archivo clase_alfabeto.h: Definición de la clase alfabeto
 
 // Historial de revisiones
@@ -24,7 +24,7 @@
 #define ALFABETO_H
 
 
-// clase Alfabeto que permite crear alfabetos apartir de cadenas y trabajar con ellos
+// clase Alfabeto que permite crear alfabetos apartir de simbolos y trabajar con ellos
 class Alfabeto {
  public:
   Alfabeto(const Simbolo& kSimboloAnadir);  // constructor de la clase apartir de un simbolo
@@ -42,7 +42,7 @@ class Alfabeto {
   std::vector<int> NumeroRepeticionesSimbolos(const Cadena& kCadenaComprobar) const;   // Método que te dice las repeticones de los simbolos del alfabeto en la cadena
 
  private:
-  std::set<Simbolo> alfabeto_;     // el vector donde se guardaran las cadenas
+  std::set<Simbolo> alfabeto_;     // el conjunto donde se guardaran los simbolos
 
 };
 

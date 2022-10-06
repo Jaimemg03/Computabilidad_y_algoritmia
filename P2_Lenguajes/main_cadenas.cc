@@ -2,10 +2,10 @@
 // 2º de Grado en Ingeniería Informática.  
 // Asignatura: Computabilidad y Algoritmia
 
-// Práctica 1: Símbolos, alfabetos y simbolos
+// Práctica 2: Lenguajes
 // Autor: Francisco David Hernández Alayón
 // Correo: alu0101469898@ull.edu.es
-// Fecha: 04/10/2022
+// Fecha: 11/10/2022
 // Archivo main_cadenas.cc: Es el programa cliente que usa las clases alfabeto y simbolo
 // Historial de revisiones
 // 28/09/2022 - Creación, primera versión del código
