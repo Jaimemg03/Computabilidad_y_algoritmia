@@ -20,18 +20,19 @@
 // Método que sirve para mostrar al usuario la forma de interactuar con el programa
 void Usage(int argc, char *argv[]) {
   if (argc < 2) {
-    std::cout << "Modo de uso: ./maincadenas.cc fichero_entrada.txt ficherosalido.txt opcode" << std::endl;
+    std::cout << "Modo de uso: ./maincadenas.cc fichero_lenguaje1.txt fichero_lenguaje2.txt fichero_salida.txt opcode" << std::endl;
     std::cout << "Pruebe a añadir '--help' para más información." << std::endl;
     exit(EXIT_SUCCESS);
   }
   std::string parametro{argv[1]};
   if (parametro == "--help") {
-    std::cout << "Este programa te permite introducir desde un fichero un alfabeto y luego una cadena en la misma linea" << std::endl;
-    std::cout << "Luego eliges un número entre el 1-5 para que en el fichero de salida aparezca la operacion seleccionada" << std::endl;
-    std::cout << "1(Longitud)  2(Inversa)  3(Prefijos)  4(Sufijos)  5(Subcadenas)" << std::endl << std::endl; ;
+    std::cout << "Este programa te permite introducir desde dos ficheros con lenguajes y luego eliges" << std::endl;
+    std::cout << "un número entre el 1-5 para que en el fichero de salida aparezca la operacion seleccionada entre los lenguajes" << std::endl;
+    std::cout << "1(Concatenacion)  2(Union)  3(Interseccion)  4(Diferencia)  5(Inversa)  6(Potencia)" << std::endl << std::endl; ;
   }
+
   if (argc != 4) {
-    std::cout << "Modo de uso: ./maincadenas.cc fichero_entrada.txt ficherosalido.txt opcode" << std::endl;
+    std::cout << "Modo de uso: ./maincadenas.cc fichero_lenguaje1.txt fichero_lenguaje2.txt fichero_salida.txt opcode" << std::endl;
     std::cout << "Pruebe a añadir '--help' para más información." << std::endl;
     exit(EXIT_SUCCESS);
   }
@@ -87,22 +88,33 @@ int main(int argc, char* argv[]) {
 
 
  //-------------------PRACTICANDO LENGUAJES-----------------//
-  Simbolo simbolo1{"00"};
+  Simbolo simbolo1{"10"};
   Simbolo simbolo2{"f"};
-  Simbolo simbolo3{"hola"};
+  Simbolo simbolo3{"ver"};
+  Simbolo simbolo4{"ay"};
   Cadena cadena_prueba;
-  Lenguaje lenguaje_prueba;
+  Lenguaje lenguaje_prueba1;
+  Lenguaje lenguaje_prueba2;
   Lenguaje lenguaje_vacio;
 
   cadena_prueba.SetCadena(simbolo1);
-  lenguaje_prueba.AnadirLenguaje(cadena_prueba);
+  lenguaje_prueba1.AnadirLenguaje(cadena_prueba);
   cadena_prueba.SetCadena(simbolo2);
-  lenguaje_prueba.AnadirLenguaje(cadena_prueba);
+  lenguaje_prueba1.AnadirLenguaje(cadena_prueba);
+  
+  cadena_prueba.SetCadena(simbolo2);
+  lenguaje_prueba2.AnadirLenguaje(cadena_prueba);
+  cadena_prueba.SetCadena(simbolo4);
+  lenguaje_prueba2.AnadirLenguaje(cadena_prueba);
   cadena_prueba.SetCadena(simbolo3);
-  lenguaje_prueba.AnadirLenguaje(cadena_prueba);
+  lenguaje_prueba2.AnadirLenguaje(cadena_prueba);
 
-  std::cout << lenguaje_prueba << std::endl;
+
   std::cout << lenguaje_vacio << std::endl;
+  std::cout << lenguaje_prueba1 << "    y    " << lenguaje_prueba2 << std::endl;
+  std::cout << lenguaje_prueba1.Concatenacion(lenguaje_prueba2) << std::endl;
+  std::cout << lenguaje_prueba1.Union(lenguaje_prueba2) << std::endl;
+  
 
   return 0;
 }

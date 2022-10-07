@@ -36,6 +36,15 @@ class Lenguaje{
 
   int LongitudLenguaje() const; // devuelve la cantidad de cadenas del lenguaje
   void AnadirLenguaje(const Cadena& kCadenaAnadir) ;   // Método para añadir una cadena en el lenguaje
+  bool ExisteCadenaLenguaje(const Cadena& kCadenaComprobar) const;  // comprueba si una determinada cadena está en el lenguaje
+  void EliminaCadena(const Cadena& kCadenaEliminar);  // elimina una cadena dada del lenguaje
+
+  Lenguaje Concatenacion(const Lenguaje& kLenguajeOperar) const;   // metodo que devuelve el lenguaje concatenado con otro por parámetros
+  Lenguaje Union(const Lenguaje& kLenguajeOperar) const;   // metodo que devuelve la union del lenguaje con otro por parámetros
+  Lenguaje Interseccion(const Lenguaje& kLenguajeOperar) const;   // metodo que devuelve la interseccion del lenguaje con otro por parámetros
+  Lenguaje Diferencia(const Lenguaje& kLenguajeOperar) const;   // metodo que devuelve la diferencia del lenguaje con otro por parámetros
+  Lenguaje Inversa(const Lenguaje& kLenguajeOperar) const;   // metodo que devuelve la inversa del lenguaje
+  Lenguaje Potencia(const int kPotencia) const;   // metodo que devuelve la potencia del lenguaje segun un indice dado
 
  private:
   std::set<Cadena> lenguaje_;   // el conjunto donde se guardaran las cadenas
