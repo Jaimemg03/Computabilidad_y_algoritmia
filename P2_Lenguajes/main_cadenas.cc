@@ -14,6 +14,7 @@
 #include <iostream>
 
 #include "clase_alfabeto.h"
+#include "clase_lenguaje.h"
 #include "funciones_cadenas.h"
 
 // Método que sirve para mostrar al usuario la forma de interactuar con el programa
@@ -43,6 +44,7 @@ int main(int argc, char* argv[]) {
   std::string fichero_entrada{argv[1]};  // fichero de entrada
   std::string fichero_salida{argv[2]};  // fichero de salida
 
+  /*
   if (parametro.length() == 1) { // comprobamos is el opcode es un solo caracter
     int opcion_usuario{std::stoi(parametro)};
     std::ifstream fichero_leer{fichero_entrada};  // fichero para leer los datos
@@ -81,5 +83,26 @@ int main(int argc, char* argv[]) {
   } else {
     std::cout << "El opcode introducido no es válido, introduzca uno entre el 1 y el 5 " << std::endl;
   }
+  */
+
+
+ //-------------------PRACTICANDO LENGUAJES-----------------//
+  Simbolo simbolo1{"00"};
+  Simbolo simbolo2{"f"};
+  Simbolo simbolo3{"hola"};
+  Cadena cadena_prueba;
+  Lenguaje lenguaje_prueba;
+  Lenguaje lenguaje_vacio;
+
+  cadena_prueba.SetCadena(simbolo1);
+  lenguaje_prueba.AnadirLenguaje(cadena_prueba);
+  cadena_prueba.SetCadena(simbolo2);
+  lenguaje_prueba.AnadirLenguaje(cadena_prueba);
+  cadena_prueba.SetCadena(simbolo3);
+  lenguaje_prueba.AnadirLenguaje(cadena_prueba);
+
+  std::cout << lenguaje_prueba << std::endl;
+  std::cout << lenguaje_vacio << std::endl;
+
   return 0;
 }

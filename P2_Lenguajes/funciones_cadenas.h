@@ -15,6 +15,7 @@
 #include <iostream>
 
 #include "clase_alfabeto.h"
+#include "clase_lenguaje.h"
 
 #ifndef FUNCIONES_H
 #define FUNCIONES_H
