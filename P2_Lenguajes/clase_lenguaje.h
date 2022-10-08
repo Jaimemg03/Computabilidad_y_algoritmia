@@ -10,7 +10,8 @@
 
 // Historial de revisiones
 // 06/10/2022 - Creación, primera versión del código
-// 07/10/2022 - Primera funciones básicas para el funcionamiento de la clase
+// 07/10/2022 - Primeras funciones básicas para el funcionamiento de la clase
+// 08/10/2022 - Terminadas las funciones principales para entregar la tarea
 
 #include <iostream>
 #include <fstream>
@@ -43,7 +44,7 @@ class Lenguaje{
   Lenguaje Union(const Lenguaje& kLenguajeOperar) const;   // metodo que devuelve la union del lenguaje con otro por parámetros
   Lenguaje Interseccion(const Lenguaje& kLenguajeOperar) const;   // metodo que devuelve la interseccion del lenguaje con otro por parámetros
   Lenguaje Diferencia(const Lenguaje& kLenguajeOperar) const;   // metodo que devuelve la diferencia del lenguaje con otro por parámetros
-  Lenguaje Inversa(const Lenguaje& kLenguajeOperar) const;   // metodo que devuelve la inversa del lenguaje
+  Lenguaje Inversa() const;   // metodo que devuelve la inversa del lenguaje
   Lenguaje Potencia(const int kPotencia) const;   // metodo que devuelve la potencia del lenguaje segun un indice dado
 
  private:

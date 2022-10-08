@@ -88,8 +88,9 @@ int main(int argc, char* argv[]) {
 
 
  //-------------------PRACTICANDO LENGUAJES-----------------//
-  Simbolo simbolo1{"10"};
-  Simbolo simbolo2{"f"};
+  Simbolo simbolo_vacio{""};
+  Simbolo simbolo1{"1"};
+  Simbolo simbolo2{"0"};
   Simbolo simbolo3{"ver"};
   Simbolo simbolo4{"ay"};
   Cadena cadena_prueba;
@@ -97,16 +98,20 @@ int main(int argc, char* argv[]) {
   Lenguaje lenguaje_prueba2;
   Lenguaje lenguaje_vacio;
 
+  // cadena_prueba.SetCadena(simbolo_vacio);
+  // lenguaje_prueba1.AnadirLenguaje(cadena_prueba);
   cadena_prueba.SetCadena(simbolo1);
   lenguaje_prueba1.AnadirLenguaje(cadena_prueba);
   cadena_prueba.SetCadena(simbolo2);
   lenguaje_prueba1.AnadirLenguaje(cadena_prueba);
   
+  cadena_prueba.SetCadena(simbolo1);
+  lenguaje_prueba2.AnadirLenguaje(cadena_prueba);
   cadena_prueba.SetCadena(simbolo2);
   lenguaje_prueba2.AnadirLenguaje(cadena_prueba);
-  cadena_prueba.SetCadena(simbolo4);
-  lenguaje_prueba2.AnadirLenguaje(cadena_prueba);
   cadena_prueba.SetCadena(simbolo3);
+  lenguaje_prueba2.AnadirLenguaje(cadena_prueba);
+  cadena_prueba.SetCadena(simbolo4);
   lenguaje_prueba2.AnadirLenguaje(cadena_prueba);
 
 
@@ -114,6 +119,10 @@ int main(int argc, char* argv[]) {
   std::cout << lenguaje_prueba1 << "    y    " << lenguaje_prueba2 << std::endl;
   std::cout << lenguaje_prueba1.Concatenacion(lenguaje_prueba2) << std::endl;
   std::cout << lenguaje_prueba1.Union(lenguaje_prueba2) << std::endl;
+  std::cout << lenguaje_prueba1.Interseccion(lenguaje_prueba2) << std::endl;
+  std::cout << lenguaje_prueba1.Diferencia(lenguaje_prueba2) << std::endl;
+  std::cout << lenguaje_prueba2.Inversa() << std::endl;
+  std::cout << lenguaje_prueba1.Potencia(int(3)) << std::endl;
   
 
   return 0;

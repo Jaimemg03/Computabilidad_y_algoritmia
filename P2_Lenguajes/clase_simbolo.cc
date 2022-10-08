@@ -55,7 +55,7 @@ int Simbolo::Longitud() const {
 // sobrecarga del operador de inserción en flujo para mostrar el simbolo
 std::ostream& operator<<(std::ostream& out, const Simbolo& kSimboloMostrar) {
   if (kSimboloMostrar.Longitud() == 0) {   // si tiene tamaño 0 muestra que es un simbolo vacío
-    out << "&";
+    out << "";
   } else {
     out << kSimboloMostrar.GetSimbolo();
   }
